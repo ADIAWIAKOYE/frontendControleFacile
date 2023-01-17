@@ -1,0 +1,7 @@
+{
+  "name": "FrontControleFaile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
