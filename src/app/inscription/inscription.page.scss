@@ -49,15 +49,87 @@ font-size: 11px;
     -ms-overflow-style: none; // IE 10+
     overflow: -moz-scrollbars-none; // Firefox
   }
-
-
-
+  ion-list{
+    background: none;
+  }
+ion-item{
+  background-color: antiquewhite;
+   margin-bottom: -5% !important;
+  }
+  ion-input{
+    margin-bottom: 7% !important;
+    // background: none;
+    border: 1px solid #2A445D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #777474;
+    background: #F5F5F5;
+    font-size: 11px;
+  }
   
+//   .password-input::placeholder{
+//   margin-left: 10% !important;
+// }
 
+.password-input::placeholder {
+  margin-left: 10%;
+}
+ion-label{
+  font-size: 11px;
+  color: #777474;
+  margin-left: 5%;
+}
+.btnn{
+  margin-top: -10%; 
+  text-align: center;
+  margin-left: 7%;
+  margin-right: 7%;
+}
+.btn {
+width: 90%;
+margin-bottom: 15%;
+ // background-color: #2A445D !important; /* Blue background */
+ background-color:#2A445D !important ;
+  border: none; /* Remove borders */
+  color: #FFFFFF; /* White text */
+ // padding: 10px 65px; /* Some padding */
+  font-weight: 500;
+  font-size: 13px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  border-radius: 20px;
+}
 
+.btn{
+  margin-top: 15%;
+  background-color: #2A445D ;
+}
+.com{
+  //margin-top: 5%;
+  text-align: center;
+}
+.com p{
+  color: #000;
+}
+.com a{
+      text-decoration: none;
+      color: #960C0C;
+}
+.comtr{
+  display: flex;
+  justify-content: center;
+ // background-color: #000;
 
-
-
+}
+.comtr p {
+  margin-top: 4px;
+  color: #333333;
+  font-size: 13px;
+}
+.comtr i .bi{
+  background: #960C0C;
+  color: #333333;
+  
+}
 
   /* For the function */
 // .msf_hide{

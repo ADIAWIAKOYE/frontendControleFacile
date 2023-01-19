@@ -13,153 +13,78 @@
       
       <div class="card-body">
         
-        <form>
-          <div class="">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+
+
+        <form [hidden]="!suivant">
+          <ion-list>
+            
+              <!-- <ion-label>Username</ion-label> -->
+              <ion-input type="text" [(ngModel)]="nom" name="nom" placeholder="Nom"></ion-input>
+            
            
+              <!-- <ion-label>Email</ion-label> -->
+                <ion-input type="text" [(ngModel)]="prenom" name="prenom" placeholder="Prénom"></ion-input>
+              
+              
+                <!-- <ion-label>Password</ion-label>  -->
+                <ion-input type="text" [(ngModel)]="profession" name="profession" placeholder="Profession"></ion-input>
+
+
+                <ion-input type="text" [(ngModel)]="domicile" name="domicile" placeholder="Domicile"></ion-input>
+            
+           
+                <!-- <ion-label>Email</ion-label> -->
+                  <ion-input type="text" [(ngModel)]="commune" name="commune" placeholder="Commune"></ion-input>
+                
+                
+                  <!-- <ion-label>Password</ion-label>  -->
+                  <ion-input type="tel" [(ngModel)]="phone" name="phone" placeholder="Téléphone"></ion-input>
+            </ion-list>
+            <div class="btnn">
+            <a class="btn" (click)="nextStep()">Suivant</a>
+
+            <a class="btn" (click)="presentAlert()">Suivant</a>
           </div>
-          <div class="">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+
+          
+          </form>
+          
+
+          <form *ngIf="step === 2" [hidden]="suivant">
+            <ion-list>
+             
+                <!-- <ion-label>Address</ion-label> -->
+                <ion-input type="text" [(ngModel)]="permis" name="permis" placeholder="N° permis"></ion-input>
+              
+              
+                <!-- <ion-label>Phone</ion-label> -->
+                <div *ngFor="let input of inputs; let i = index">
+                <ion-input type="text" [(ngModel)]="input.value" name="cartegrise" placeholder="N° Carte Grise"></ion-input>
+              </div>
+
+                <div class="comtr">
+                  <p >plus de carte grise</p>
+                  &nbsp;
+                  &nbsp;
+                  <i class="bi bi-plus-lg" (click)="addInput()" style="color: #333333; font-size: 20px;"></i>
+                  <i class="bi bi-dash-lg" (click)="removeInput()" style="color: #333333; font-size: 20px;"></i>
+                </div>
+                
+            </ion-list>
+            <div class="btnn">
+            <a class="btn" (click)="submit()">S'inscrire</a>
           </div>
           
-        </form>
+          </form>
+          
+          <div class="com">
+            <p >j’ai deja un compte . <a href="">se connecter</a> </p>
 
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-
-
-        
-
-        <!-- <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
-          <mat-step [stepControl]="firstFormGroup">
             
-            <form class="form">
-              <ng-template matStepLabel>Informations de l'utilisateurs</ng-template>
-              <ng-template matStepContent class="cont">
-                <div class="mt-1 contentinput">
-                  <ion-item>
-                    <ion-input type="text" placeholder="Nom complet"></ion-input>
-                  </ion-item>
-                  <ion-item>
-                    <ion-input type="tel" maxlength="8" placeholder="Numero de Telephone"></ion-input>
-                  </ion-item>
-                  <ion-item>
-                    <ion-input type="text" placeholder="Pseudo"></ion-input>
-                  </ion-item>
-                  <ion-item>
-                    <ion-input type="text" placeholder="Adresse"></ion-input>
-                  </ion-item>
-                  <ion-item>
-                    <ion-input type="email" placeholder="Email"></ion-input>
-                  </ion-item>
-                  <ion-item>
-                    <ion-input type="password" placeholder="Mots de passe"></ion-input>
-                  </ion-item>
-                </div>
-                <div>
-                  <button mat-raised-button color="primary" matStepperNext>Suivants</button>
-                </div>
-              </ng-template>
-            </form>
-          </mat-step>
-          <mat-step [stepControl]="secondFormGroup">
-            <form>
-              <ng-template matStepLabel>Informations de la Startups</ng-template>
-              <ng-template matStepContent>
-                <ion-item>
-                  <ion-input type="text" placeholder="Nom de la Startups"></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-input type="tel" maxlength="8" placeholder="Contact"></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-input type="text" placeholder="Stade developpement"></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-input type="text" placeholder="Numero d'identification"></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-input type="email" placeholder="description"></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-input type="password" placeholder="Proprietaire"></ion-input>
-                </ion-item>
-                <div class="d-flex justify-content-between">
-                  <div class="">
-                    <button mat-button matStepperPrevious>Precedents</button>
-                  </div>
-                  <div class="">
-                    <button mat-raised-button color="primary" matStepperNext>Suivants</button>
-                  </div>
-                </div>
-              </ng-template>
-    
-            </form>
-          </mat-step>
-          <mat-step [stepControl]="secondFormGroup">
-            <form>
-              <ng-template matStepLabel>Fill out your address</ng-template>
-              <ng-template matStepContent>
-                <ion-item>
-                  <ion-input type="text" placeholder="Forme juridique"></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-input type="tel" maxlength="8" placeholder="Chiffre d'affaire"></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-input type="text" placeholder="Localisation"></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-input type="text" placeholder="Pays"></ion-input>
-                </ion-item>
-                <ion-item>
-                  <input type="file" placeholder="photo">
-                </ion-item>
-                <div class="d-flex justify-content-between">
-                  <div class="">
-                    <button mat-button matStepperPrevious>Precedents</button>
-                  </div>
-                  <div class="">
-                    <button mat-raised-button color="primary" matStepperNext>Suivants</button>
-                  </div>
-                </div>
-              </ng-template>
-    
-            </form>
-          </mat-step>
-          <mat-step>
-            <ng-template matStepLabel>Fin</ng-template>
-            <p class="mt-5">Pour la validation de votre espaces toutes les cases doivent etres renseigner</p>
-            <div class="d-flex justify-content-between">
-              <div class="">
-                <button mat-button matStepperPrevious>Precedents</button>
-              </div>
-            </div>
-            <ion-button expand="block" routerLink="/validation" style="margin-top: 20px;">S'inscrire</ion-button>
-          </mat-step>
-        </mat-stepper> -->
+          </div>
 
-
-
-
-
+      
 
       </div>
     </div>
