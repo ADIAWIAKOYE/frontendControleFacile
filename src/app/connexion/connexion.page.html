@@ -1,0 +1,28 @@
+
+<ion-content>
+  <div class="bien ">
+    <h2>Connectez vous</h2>
+  </div>
+  <div class="inmage">
+    <ion-img class="image" src="/assets/icon/Frame 128.png" alt=""></ion-img>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <form >
+        <ion-list>
+      <ion-input type="tel" [(ngModel)]="telephone" name="phone" placeholder="Téléphone"></ion-input>
+      <ion-input type="text" [(ngModel)]="password" name="password" placeholder="Password"></ion-input>
+    </ion-list>
+
+    <div class="btnn">
+
+      <a class="btn" (click)="submit()">Se connecter</a>
+    </div>
+  </form>
+  <div class="com">
+    <p >je n’ai pas un compte . <a routerLink = '/inscription'>s'inscrire</a> </p>
+    <p>Rassurez vous de bien renplire les champs <a routerLink = '/tabs'>acceuil</a></p>
+  </div>
+    </div>
+  </div>
+</ion-content>

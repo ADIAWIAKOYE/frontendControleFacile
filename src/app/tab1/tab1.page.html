@@ -1,17 +1,69 @@
-<ion-header [translucent]="true">
+ <!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Tab 1
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header>  -->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div class="header">
+    <div class="icone">
+      <ion-img class="image" src="/assets/icon/logo.png" alt=""></ion-img>
+    </div>
+
+    <!-- <div class="icond col-md-3"> -->
+      <div class="cercler">
+        <div class="icon">
+         <a routerLink = '/information'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+        </div>
+      </div>
+    <!-- </div> -->
+    <!-- <div class="icon">
+      <ion-img class="image" src="/assets/icon/logo.png" alt=""></ion-img>
+    </div> -->
+  </div>
+
+  <div class="inmage">
+    <ion-img class="image" src="/assets/icon/Frame 128.png" alt=""></ion-img>
+  </div>
+
+  <div class="card">
+       <div class="lescards">
+            <div class="trow">
+
+              <div class="item-padd">
+                <div class="item-inner ">
+                    <div class="iimg">
+                      <ion-icon name="newspaper"></ion-icon>
+                    </div>
+                    <!-- <p>Site web de recyclage D3E</p> -->
+                    <div class="label">
+                      <ion-label>Mon <br> Permis</ion-label>
+                    </div>
+                  
+                </div>
+             </div>
+
+
+              <div class="item-padd">
+                <div class="item-inner">
+                  <div class="iimg">
+                    <ion-icon name="car-sport"></ion-icon>
+                  </div>
+                  <div class="label">
+                     <ion-label>Mes <br> véhicules </ion-label>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+  </div>
+
+  <div class="com">
+    <p >Vous pouvez accédé à vos permis, cartes grises,
+       l’historique de vos infractions et leurs validités </p>
+  </div>
+  </div>
 </ion-content>
