@@ -20,6 +20,14 @@ const routes: Routes = [
   },  {
     path: 'information',
     loadChildren: () => import('./information/information.module').then( m => m.InformationPageModule)
+  },
+  {
+    path: 'compts',
+    loadChildren: () => import('./compts/compts.module').then( m => m.ComptsPageModule)
+  },
+  {
+    path: 'permis',
+    loadChildren: () => import('./permis/permis.module').then( m => m.PermisPageModule)
   }
 
 

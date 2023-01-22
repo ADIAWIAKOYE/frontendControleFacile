@@ -1,3 +1,8 @@
+ion-content{
+    --background: #2A445D;
+//     width: 100%;
+//     height: 100%;
+}
 .header{
     display: flex;
    position: fixed;
@@ -31,13 +36,14 @@ bottom: 0px;
     margin: 10px;
   }
   .bien{
-    margin-top: 30%; 
+    margin-top: 85px; 
     text-align: center;
     
 }
 .bien h2{
- font-weight: 600;
- font-size: 25px;
+ font-weight: 700;
+ font-size: 28px;
+ color: #FFFFFF;
 }
 .card{
     margin-top: -5px;
@@ -45,8 +51,8 @@ bottom: 0px;
     width: 93%;
     //  margin-right: -5px;
     //  margin-left: -5px;
-    height: 77%;
-    background-color: #FFFFFF;
+    height: 80%;
+    background: #FFFFFF;
     scrollbar-width: none !important;
     overflow-y: scroll; 
     margin-right: auto;
@@ -56,4 +62,69 @@ bottom: 0px;
 }
 .card::-webkit-scrollbar {
     display: none;
+  }
+
+
+
+  .trow{
+    margin-top: 20px;
+  }
+  .item-padd{
+    
+    // display: flex;
+    // justify-content: center;
+        // background: red;
+        width: 95%;
+        // margin: 2%;
+        padding-bottom: 8%;
+        margin-left: auto;
+        margin-right: auto;
+        
+        
+  }
+  .item-inner {
+    // width: 109px;
+    // height: 126px;
+    // width: 100%;
+    height: 90%;
+    background: #C9D4DF;
+    border-radius: 10px;
+  }
+  .iimg{
+    display: flex;
+  }
+  ion-icon{
+    color: red;
+    margin: 5px;
+  }
+  ion-label{
+    font-weight: 500;
+    font-size: 14px;
+    margin: 5px;
+    color: #000;
+  }
+  .label{
+    // margin-left: 5%;
+    // margin-right: 5%;
+    display: flex;
+    margin-left: 5%;
+  }
+  ion-item{
+    font-weight: 500;
+   --background: none !important;
+    font-size: 14px;
+    border: none !important;
+    color: #000;
+  }
+  .conten{
+    margin-top: -10px;
+  }
+  .conten ion-label{
+    margin: 20px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .urge{
+    font-weight: 600;
+    font-size: 14px;
   }
