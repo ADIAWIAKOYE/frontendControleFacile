@@ -1,0 +1,180 @@
+ion-content{
+    --background: #2A445D;
+//     width: 100%;
+//     height: 100%;
+}
+
+.header{
+    display: flex;
+   position: fixed;
+}
+.icone{
+    width: 95px;
+    height: 45px;
+
+}
+.inmage{
+    width: 88%;
+   margin-top: 15%;
+   margin-left: auto;
+   margin-right: auto;
+   z-index: 2;
+   position: relative;
+bottom: 0px;
+
+
+}
+.cercler{
+   background-color: aliceblue;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+   
+   right: 0;
+    position: fixed;
+    margin: 15px;
+
+  }
+  .imag{
+    margin: 10px;
+  }
+
+  .retu{
+    margin-top: 27%;
+    position: fixed;
+   
+  }
+
+ .retu a{
+    margin: 5%;
+    text-decoration: none;
+  }
+  .retu a ion-icon{
+    color: #FFFFFF;
+    width: 30px;
+    height: 30px;
+}
+
+.bien{
+    margin-top: 35%; 
+    text-align: center;
+    
+}
+.bien h2{
+ font-weight: 700;
+ font-size: 25px;
+ color: #FFFFFF;
+}
+
+.card{
+    margin-top: -5px;
+    //position: relative;
+    width: 93%;
+    //  margin-right: -5px;
+    //  margin-left: -5px;
+    height: 76%;
+    background-color: #FFFFFF;
+    scrollbar-width: none !important;
+    overflow-y: scroll; 
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 25px;
+    
+}
+.card::-webkit-scrollbar {
+    display: none;
+  }
+
+  .inmage{
+    width: 70%;
+   margin-top: 5%;
+   margin-left: auto;
+   margin-right: auto;
+   z-index: 2;
+   position: relative;
+bottom: 0px;
+}
+.icons{
+    display: flex;
+    justify-content: center;
+  }
+  .icons a{
+    font-weight: 500;
+    color: #2A445D;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .Rrow{
+    margin-top: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  ion-list{
+    
+    background: none;
+  }
+ion-item{
+  background-color: antiquewhite;
+   margin-bottom: -5% !important;
+  }
+  ion-input{
+    margin-bottom: 3% !important;
+    // background: none;
+    border: 1px solid #2A445D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #777474;
+    background: #F5F5F5;
+    font-size: 13px;
+  }
+  ion-label{
+    font-weight: 600;
+    font-size: 13px;
+    color: #000;
+    margin-left: 5%;
+  }
+
+
+  .buton{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.btn {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 20px;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    white-space: nowrap;
+    border: none;
+    background-color: #DE0505;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+a{
+    text-decoration: none;
+}
+.hire{
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 20px;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    white-space: nowrap;
+    border: none;
+    background-color: #2A445D;
+    transition: all 0.3s ease;
+}
+
+.hire:hover{
+    transform: scale(1.05);
+}

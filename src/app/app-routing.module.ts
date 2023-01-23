@@ -28,6 +28,18 @@ const routes: Routes = [
   {
     path: 'permis',
     loadChildren: () => import('./permis/permis.module').then( m => m.PermisPageModule)
+  },
+  {
+    path: 'vehicule',
+    loadChildren: () => import('./vehicule/vehicule.module').then( m => m.VehiculePageModule)
+  },
+  {
+    path: 'detailvehicule',
+    loadChildren: () => import('./detailvehicule/detailvehicule.module').then( m => m.DetailvehiculePageModule)
+  },
+  {
+    path: 'modifiervehicule',
+    loadChildren: () => import('./modifiervehicule/modifiervehicule.module').then( m => m.ModifiervehiculePageModule)
   }
 
 
