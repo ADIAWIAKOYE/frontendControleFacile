@@ -40,6 +40,14 @@ const routes: Routes = [
   {
     path: 'modifiervehicule',
     loadChildren: () => import('./modifiervehicule/modifiervehicule.module').then( m => m.ModifiervehiculePageModule)
+  },
+  {
+    path: 'detailinfraction',
+    loadChildren: () => import('./detailinfraction/detailinfraction.module').then( m => m.DetailinfractionPageModule)
+  },
+  {
+    path: 'cartegrise',
+    loadChildren: () => import('./cartegrise/cartegrise.module').then( m => m.CartegrisePageModule)
   }
 
 
