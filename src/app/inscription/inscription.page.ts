@@ -51,7 +51,6 @@ export class InscriptionPage implements OnInit {
 
   addinput(){
     
-
   }
 
   submit() {

@@ -17,7 +17,8 @@ const routes: Routes = [
   {
     path: 'connexion',
     loadChildren: () => import('./connexion/connexion.module').then( m => m.ConnexionPageModule)
-  },  {
+  },
+  {
     path: 'information',
     loadChildren: () => import('./information/information.module').then( m => m.InformationPageModule)
   },
@@ -48,7 +49,23 @@ const routes: Routes = [
   {
     path: 'cartegrise',
     loadChildren: () => import('./cartegrise/cartegrise.module').then( m => m.CartegrisePageModule)
-  }
+  },
+  {
+    path: 'policier',
+    loadChildren: () => import('./policier/policier.module').then( m => m.PolicierPageModule)
+  },
+  // {
+  //   path: 'policier1',
+  //   loadChildren: () => import('./policier1/policier1.module').then( m => m.Policier1PageModule)
+  // },
+  // {
+  //   path: 'policier2',
+  //   loadChildren: () => import('./policier2/policier2.module').then( m => m.Policier2PageModule)
+  // },
+  // {
+  //   path: 'policier3',
+  //   loadChildren: () => import('./policier3/policier3.module').then( m => m.Policier3PageModule)
+  // }
 
 
 ];

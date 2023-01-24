@@ -1,0 +1,72 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>policier2</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <div class="header">
+    <div class="icone">
+      <ion-img class="image" src="/assets/icon/logo.png" alt=""></ion-img>
+    </div>
+
+    <!-- <div class="icond col-md-3"> -->
+      <div class="cercler">
+        <div class="icon">
+         <a routerLink = '/information'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bien ">
+      <h2>Scanner le QR Code</h2>
+    </div>
+
+    <div class="inmage">
+      <ion-img class="image" src="/assets/icon/Frame.png" alt=""></ion-img>
+    </div>
+
+    <ion-button id="open-modal" expand="block">Scanner le QR Code</ion-button>
+
+
+    <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <!-- <ion-buttons slot="start"> -->
+              <div class="def">
+
+                <ion-icon name="chevron-back" (click)="cancel()" ></ion-icon>
+                <!-- <ion-button (click)="cancel()">Cancel</ion-button> -->
+              <!-- </ion-buttons> -->
+              <div class="titre">
+                <ion-title>Scanner le QR Code</ion-title>
+              </div>
+              
+              <!-- <ion-buttons slot="end">
+                <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+              </ion-buttons> -->
+
+              </div>
+            
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <!-- <ion-item>
+            <ion-label position="stacked">Enter your name</ion-label>
+            <ion-input type="text" placeholder="Your name" [(ngModel)]="name"></ion-input>
+          </ion-item> -->
+        </ion-content>
+
+        <ion-footer>
+          <ion-toolbar>
+            <!-- <ion-title>Footer</ion-title> -->
+          </ion-toolbar>
+        </ion-footer>
+
+      </ng-template>
+    </ion-modal>
+
+
+</ion-content>

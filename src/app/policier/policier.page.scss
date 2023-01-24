@@ -1,0 +1,23 @@
+ion-tabs{
+    background: #2A445D !important;
+}
+ion-tab-bar{
+    // border: 1px solid #FFFFFF;
+    // border: none;
+    border-top-color: #FFFFFF;
+}
+ion-icon{
+    color: #FFFFFF;
+    width: 50px;
+    height: 50px;
+}
+ion-label{
+    font-size: 10px;
+}
+.tab-selected{
+    color:#FFFFFF;
+}
+
+.tab:hover{
+    color:#FFFFFF;
+}
