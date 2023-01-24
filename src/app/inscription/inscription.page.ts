@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { type } from 'os';
+
 import { AlertController } from '@ionic/angular';
 
 @Component({
