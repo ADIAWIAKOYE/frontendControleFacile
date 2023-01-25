@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+// import { Camera } from '@capacitor/camera';
+// import { ZXingScannerModule } from '@zxing/ngx-scanner';
+
+
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -14,4 +18,5 @@ import { AppComponent } from './app.component';
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, QRScanner],
   bootstrap: [AppComponent],
 })
+
 export class AppModule {}

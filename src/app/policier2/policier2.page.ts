@@ -2,12 +2,14 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
+// import { Component } from '@angular/core';
+// import { Camera } from '@capacitor/camera';
 
 
 @Component({
   selector: 'app-policier2',
   templateUrl: './policier2.page.html',
-  styleUrls: ['./policier2.page.scss'],
+  styleUrls: ['./policier2.page.scss'], 
 })
 export class Policier2Page implements OnInit {
   
@@ -31,13 +33,14 @@ export class Policier2Page implements OnInit {
     }
   }
   constructor(private qrScanner: QRScanner,) {
-    this.scancode();
+    // this.scancode();
    }
 
 
 
   scancode() {
     this.qrScanner.show()
+    this.qrScanner.prepare()
     .then((status: QRScannerStatus) => {
        if (status.authorized) {
          // camera permission was granted
@@ -62,6 +65,8 @@ export class Policier2Page implements OnInit {
   }
 
   ngOnInit() {
+    this.scancode();
+    // .show
   }
 
 }
