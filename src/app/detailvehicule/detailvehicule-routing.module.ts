@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: DetailvehiculePage
-  }
+  },
+  {
+    path: 'cartegrise/:idvehicule',
+    loadChildren: () => import('../cartegrise/cartegrise.module').then( m => m.CartegrisePageModule)
+  },
 ];
 
 @NgModule({

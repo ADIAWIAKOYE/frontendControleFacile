@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AlertController } from '@ionic/angular';
+import { InscriptionService } from '../services/inscription.service';
 
 @Component({
   selector: 'app-inscription',
@@ -14,6 +15,14 @@ export class InscriptionPage implements OnInit {
   suivant : boolean = true;
 
   inputs = [{ value: '' }];
+  
+
+  // for (let element of inputs) {
+  //   console.log(element);
+  // }
+ 
+  
+  message: any;
 
   addInput() {
 
@@ -25,7 +34,7 @@ export class InscriptionPage implements OnInit {
        this.inputs.pop()
   }
 
-  constructor(private alertController: AlertController) { }
+  constructor(private alertController: AlertController, private inscriptionservice: InscriptionService) { }
 
   step = 1;
   nom!: string;
@@ -39,6 +48,20 @@ export class InscriptionPage implements OnInit {
   inpute! : any;
  type!:string;
 
+
+ resetForm(){
+
+  this.nom = '';
+  this.prenom = '';
+  this.profession = '';
+  this.domicile = '';
+  this.commune = '';
+  this.phone = '';
+  this.permis = '';
+  this.inpute = '';
+
+}
+
   ngOnInit() {
 
 
@@ -48,6 +71,12 @@ export class InscriptionPage implements OnInit {
   this.suivant = false;
   this.step++;
   }
+
+  ReturnStep() {
+    this.suivant = true;
+    this.step--;
+    }
+
 
   addinput(){
     
@@ -64,9 +93,51 @@ export class InscriptionPage implements OnInit {
     console.log("permis:", this.permis);
 
     console.log("cartegrise:", this.inputs);
+    }
 
+    errorMessage = '';
+    inp: string = "";
+    last: string = "";
 
+    onSubmit(){
+          
+        for (let element of this.inputs) {
+
+          this.inp = this.inp+=element.value+","
+          
+          
+          console.log(element);
+        }
+        
+        this.last = this.inp[this.inp.length-1];
+        this.inp =this.inp.substring(0, this.inp.length - 1);
+
+        // console.log("last est :------------------"+this.last);
+
+        // console.log("insput est :------------------"+this.inp);
+      // this.inputs.forEach(element => {
     
+      // });
+      // console.log("Téléphone:------------------"+this.phone);
+      // console.log("Cartegrise:------------------"+this.inputs);
+
+      this.inscriptionservice.inscription(this.phone, this.inp, this.nom, this.prenom, this.domicile, this.commune, this.profession, this.permis).subscribe(
+        data => {
+          // console.log("Téléphone:------------------"+this.phone);
+          // console.log("Cartegrise:------------------"+this.inp);
+
+          this.message = data.message;
+      
+          // console.log("---------------------------------"+this.message)
+          // console.log("---------------------------------"+data)
+
+          // error: err => {
+          //   this.errorMessage = err.error.message;
+          // }
+        },
+      );
+      this.resetForm()
+     
     }
 
 

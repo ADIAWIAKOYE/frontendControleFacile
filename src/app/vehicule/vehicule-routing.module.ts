@@ -7,7 +7,13 @@ const routes: Routes = [
   {
     path: '',
     component: VehiculePage
-  }
+  },
+
+  {
+    path: 'detailvehicule/:idvehicule',
+    loadChildren: () => import('../detailvehicule/detailvehicule.module').then( m => m.DetailvehiculePageModule)
+  },
+
 ];
 
 @NgModule({
