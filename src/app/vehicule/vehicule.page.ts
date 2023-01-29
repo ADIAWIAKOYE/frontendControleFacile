@@ -27,6 +27,10 @@ export class VehiculePage implements OnInit {
 
   constructor( private vehiculeservice: VehiculeService, private storageService: StorageService,) { }
 
+  back(): void {
+    window.history.back()
+  }
+
   ngOnInit() {
 
     // const idvehicule = this.route.snapshot.params['idvehicule']

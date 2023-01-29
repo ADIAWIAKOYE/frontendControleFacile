@@ -57,8 +57,8 @@
          <!-- &nbsp; -->
         <div class="ite">
           <div class="info-ite">
-            <p class="yr"> <span>{{nomi}} </span> <span> Ahmadou</span></p>
-            <p class="yre" >N° Permis : <span>Ahmadou</span></p>
+            <p class="yr"> <span>{{nomi}} </span> <span> {{prenomi}}</span></p>
+            <p class="yre" >N° Permis : <span>{{numpermisi}}</span></p>
           </div>
           <!-- <div class="info-item"> -->
             <!-- <p>N° Permis : <span>Ahmadou</span></p> -->
@@ -73,38 +73,42 @@
    
     <div class="infoitem">
       <div class="info-tem">
-          <p>Numéro de la carte grise : <span>0614026</span></p>
+          <p>Numéro de la carte grise : <span>{{numcartegrisei}}</span></p>
         </div>
         <div class="info-tem">
-          <p>Valable du <span>10 / 10 / 2019</span> au <span>10 / 10 / 2019</span></p>
+          <p>Valable du <span>{{datedelivrancei}} </span> au <span> {{datedecheancei}}</span></p>
         </div>
     </div>
         
     <div class="iteminfo">
       <div class="info-itemt">
-          <p>Marque : <span>TOYOTA </span></p>
+          <p>Marque : <span>{{marqi}} </span></p>
         </div>
          &nbsp;
          &nbsp;
-         &nbsp;
+         <div class="info-itemr">
+          <p>Genre :  <span>{{genri}}</span></p>
+        </div>
+        &nbsp;
+        &nbsp;
         <div class="info-itemr">
-          <p>Type :  <span>COROLLA XLI</span></p>
+          <p>Type :  <span>{{typi}}</span></p>
         </div>
     </div>
         
       <div class="info">
          <div class="info1">
-          <p>Couleur : <br> <span>Orange</span></p>
+          <p>Couleur : <br> <span>{{coul}}</span></p>
         </div>
         &nbsp;
         &nbsp;
         <div class="info2">
-          <p>Energie : <br> <span>Essence</span></p>
+          <p>Energie : <br> <span>{{energii}}</span></p>
         </div>
         &nbsp;
         &nbsp;
         <div class="info3">
-          <p>Carrosserie : <br> <span>Cond int 4 PTS</span></p>
+          <p>Carrosserie : <br> <span>{{carrouserii}}</span></p>
         </div>
       </div>
 
@@ -112,17 +116,17 @@
 
       <div class="info">
         <div class="info1">
-         <p>Plasses <br>assises : <span>4</span></p>
+         <p>Plasses <br>assises : <span>{{nbplacei}}</span></p>
        </div>
        &nbsp;
        &nbsp;
        <div class="info2">
-         <p>Puissences <br> reél CV :<span>7</span></p>
+         <p>Puissences <br> reél CV : <span>{{puissancereeli}}</span></p>
        </div>
        &nbsp;
        &nbsp;
        <div class="info3">
-         <p>Puissences  <br>admin CV :<span>7</span></p>
+         <p>Puissences  <br>admin CV : <span>{{puissanceadmini}}</span></p>
        </div>
      </div>
 
@@ -130,34 +134,36 @@
 
      <div class="infof">
       <div class="info1">
-       <p>P.T.A.C :<br> <span>1545</span></p>
+       <p>P.T.A.C :<br> <span>{{ptaci}}</span></p>
      </div>
      &nbsp;
      &nbsp;
      <div class="info2">
-       <p>P V : <br> <span>1045</span></p>
+       <p>P V : <br> <span>{{pvi}}</span></p>
      </div>
      &nbsp;
      &nbsp;
      <div class="info3">
-       <p>C U : <br> <span> 7</span></p>
+       <p>C U : <br> <span>{{coutunitairei}}</span></p>
      </div>
    </div>
        
 
    <div class="infoit">
     <div class="info-tem">
-        <p>Numero de Série / Chassis : <span>JTDBZ20E200134O93</span></p>
+        <p>Numero de Série / Chassis : <span>{{chassiei}}</span></p>
       </div>
       <div class="info-tem">
-        <p>Numéro d’immatriculation : <span>AV7223MD</span></p>
+        <p>Numéro d’immatriculation : <span>{{plaq}}</span></p>
       </div>
       <div class="info-tem">
-        <p>Date de mise en circulation : <span>10 / 10 / 2019</span></p>
+        <p>Date de mise en circulation : <span>{{dpmci}}</span></p>
       </div>
   </div>
 
-
+  <div class="m">
+    <h3>{{validite}}</h3>
+  </div>
   </div>
   
   <!-- <div class="desc">

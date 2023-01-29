@@ -23,7 +23,7 @@
   </div>
 
   <div class="retu">
-    <a routerLink = '/tabs'> <ion-icon name="chevron-back"></ion-icon></a>
+    <ion-icon (click)="back()" name="chevron-back"></ion-icon>
    </div>
 
    <div class="bien ">
@@ -94,7 +94,7 @@
         <a  [routerLink] = "['detailvehicule', this.idve]" routerLinkActive="active" class="hire">{{vehicle.plaqueimatri}}</a>
         &nbsp;
         <!-- &nbsp; -->
-        <a routerLink = '/modifiervehicule' class="btn">Modifier</a>
+        <a [routerLink] = "['modifiervehicule', this.idve]" routerLinkActive="active" class="btn">Modifier</a>
           </div>
       </div>
     </div>

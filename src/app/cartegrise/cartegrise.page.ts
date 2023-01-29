@@ -18,6 +18,24 @@ export class CartegrisePage implements OnInit {
   coul: any;
   idvec: any;
   nomi: any;
+  prenomi: any;
+  datenaissancei: any;
+  lieunaissancei: any;
+  numpermisi: any;
+  numcartegrisei: any;
+  datedelivrancei: any;
+  datedecheancei: any;
+  energii: any;
+  carrouserii: any;
+  nbplacei: any;
+  puissanceadmini: any;
+  puissancereeli: any;
+  ptaci: any;
+  pvi: any;
+  coutunitairei: any;
+  chassiei: any;
+  dpmci: any;
+  validite: any;
   constructor(private storageService: StorageService, private route: ActivatedRoute, private cartegriseservice: CartegriseService,) { }
 
 
@@ -33,18 +51,37 @@ export class CartegrisePage implements OnInit {
   this.cartegriseservice.getcartegrisVehicule(idvehicule).subscribe(data=>{
     this.vecule=data;
     this.nomi=this.vecule.nom;
+    this.prenomi=this.vecule.prenom;
+    this.datenaissancei=this.vecule.datenaissance;
+    this.lieunaissancei=this.vecule.lieunaissance;
+    this.datedelivrancei=this.vecule.datedelivrance;
+    this.datedecheancei=this.vecule.dateecheance
+    this.numcartegrisei=this.vecule.numcartegrise;
     this.marqi=this.vecule.marque;
     this.genri=this.vecule.genre;
     this.typi=this.vecule.type;
     this.plaq=this.vecule.vehicule.plaqueimatri;
     this.coul=this.vecule.vehicule.couleur;
     this.idvec=this.vecule.vehicule.idvehicule;
+    this.numpermisi=this.vecule.utilisateur.permis.numpermis;
+    this.energii=this.vecule.energie;
+    this.carrouserii=this.vecule.carrouserie;
+    this.nbplacei=this.vecule.nbplace;
+    this.puissancereeli=this.vecule.puissancereel;
+    this.puissanceadmini=this.vecule.puissanceadmin;
+    this.ptaci=this.vecule.ptac;
+    this.pvi=this.vecule.pv;
+    this.coutunitairei=this.vecule.coutunitaire;
+    this.chassiei=this.vecule.chassie;
+    this.dpmci=this.vecule.dpmc;
+    this.validite=this.vecule.status;
     console.log("la nom est "+ this.nomi)
     console.log("la marque est "+ this.marqi)
     console.log("la genre est "+this.genri)
     console.log("la genre est "+this.typi)
     console.log("la plaque est "+this.plaq)
     console.log("la id vehicule est "+this.idvec)
+    console.log("la numeropermis est ",this.numpermisi)
   });
 
 

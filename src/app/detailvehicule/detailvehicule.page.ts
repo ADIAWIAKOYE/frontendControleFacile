@@ -24,6 +24,10 @@ export class DetailvehiculePage implements OnInit {
 
   constructor(private storageService: StorageService, private route: ActivatedRoute, private vehiculeservice: VehiculeService,) { }
 
+  back(): void {
+    window.history.back()
+  }
+
   nextStep() {
 
     this.suivant = false;
