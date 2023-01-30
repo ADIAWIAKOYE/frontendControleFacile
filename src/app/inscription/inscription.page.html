@@ -16,13 +16,12 @@
 
 
 
-        <form [hidden]="!suivant">
+        <form [hidden]="!suivant" (ngSubmit)="onSubmit()">
           <ion-list>
             
               <!-- <ion-label>Username</ion-label> -->
               <ion-input type="text" [(ngModel)]="nom" name="nom" placeholder="Nom"></ion-input>
-            
-           
+              
               <!-- <ion-label>Email</ion-label> -->
                 <ion-input type="text" [(ngModel)]="prenom" name="prenom" placeholder="Prénom"></ion-input>
               
@@ -51,7 +50,11 @@
           </form>
           
 
-          <form *ngIf="step === 2" [hidden]="suivant">
+          <form *ngIf="step === 2" [hidden]="suivant" (ngSubmit)="onSubmit()">
+
+            <div *ngIf="message" class="alert alert-success" role="alert">
+              <strong>{{message}}</strong>
+            </div>
             <ion-list>
              
                 <!-- <ion-label>Address</ion-label> -->
@@ -73,7 +76,8 @@
                 
             </ion-list>
             <div class="btnn">
-            <a class="btn" (click)="submit()">S'inscrire</a>
+            <a class="btn" (click)="onSubmit()">S'inscrire</a>
+            <a class="btn" (click)="ReturnStep()">returne</a>
           </div>
           
           </form>

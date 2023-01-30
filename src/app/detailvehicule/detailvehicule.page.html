@@ -24,24 +24,27 @@
   </div>
 
   <div class="retu">
-    <a routerLink = '/tabs'> <ion-icon name="chevron-back"></ion-icon></a>
+     <ion-icon (click)="back()" name="chevron-back"></ion-icon>
    </div>
 
    <div class="bien ">
-    <h2>AV 7223 MD</h2>
+    <h2>{{plaq}}</h2>
   </div>
 
   <div class="card">
 
     <div class="prow">
       <div class="info-item">
-         <p>Marque : <span>TOYOTA</span></p>
+         <p>Marque : <span>{{marqi}}</span></p>
       </div>
       <div class="info-item">
-         <p>Type : <span>COROLLA XLI</span></p>
+        <p>Genre : <span>{{genri}}</span></p>
+     </div>
+      <div class="info-item">
+         <p>Type : <span>{{typi}}</span></p>
       </div>
       <div class="info-item">
-         <p>Couleur : <span>Orange</span></p>
+         <p>Couleur : <span>{{coul}}</span></p>
       </div>
       <!-- <div class="info-item">
          <p>Profession : <span>Etudiant</span></p>
@@ -61,7 +64,7 @@
    </div>
 
 
-   <div class="lescards">
+  <div class="lescards">
     <div class="trow">
 
       <div class="item-padd">
@@ -82,7 +85,7 @@
       <div class="item-padd">
         <div class="item-inner">
           <div class="iimg">
-          <a routerLink = '/cartegrise'> <ion-icon name="newspaper"></ion-icon></a> 
+          <a [routerLink] = "['cartegrise', idvec]" routerLinkActive="active"> <ion-icon name="newspaper"></ion-icon></a> 
           </div>
           <div class="label">
              <ion-label>Voir la carte<br>grise</ion-label>
@@ -91,6 +94,37 @@
         </div>
       </div>
     </div>
+
+    <div class="trow" *ngIf="!suivant">
+
+      <div class="item-padd">
+        <div class="item-inner ">
+            <div class="iimg">
+             
+          <a routerLink = '/permis'><ion-icon name="newspaper"></ion-icon></a>    
+            </div>
+            <!-- <p>Site web de recyclage D3E</p> -->
+            <div class="label">
+              <ion-label>Voir le<br>permis</ion-label>
+            </div>
+          
+        </div>
+     </div>
+
+
+      <div class="item-padd">
+        <div class="item-inner">
+          <div class="iimg">
+          <a routerLink = '/cartegrise'><ion-icon name="archive"></ion-icon></a> 
+          </div>
+          <div class="label">
+             <ion-label>Associer une<br>infraction</ion-label>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+
 </div>
 
   </div>

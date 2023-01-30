@@ -24,17 +24,17 @@
   </div>
 
   <div class="retu">
-    <a routerLink = '/tabs'> <ion-icon name="chevron-back"></ion-icon></a>
+    <ion-icon (click)="back()" name="chevron-back"></ion-icon>
    </div>
 
    <div class="bien ">
-    <h2>AV 7223 MD</h2>
+    <h2>{{plaq}}</h2>
   </div>
 
   <div class="card">
 
     <div class="inmage">
-      <ion-img class="image" src="/assets/icon/Rectangle 332.png" alt=""></ion-img>
+      <ion-img class="image" src="{{image}}" alt=""></ion-img>
     </div>
 
     <div class="icons ">

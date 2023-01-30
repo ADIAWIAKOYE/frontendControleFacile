@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
@@ -6,7 +7,7 @@ import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 // import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -15,7 +16,11 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule,
+     IonicModule.forRoot(), 
+     AppRoutingModule,
+     FormsModule,
+     HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, QRScanner, BarcodeScanner],
   bootstrap: [AppComponent],
 })
