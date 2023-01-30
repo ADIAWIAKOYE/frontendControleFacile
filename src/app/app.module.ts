@@ -4,6 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 // import { Camera } from '@capacitor/camera';
 // import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 
 
@@ -15,7 +16,7 @@ import { AppComponent } from './app.component';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, QRScanner],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, QRScanner, BarcodeScanner],
   bootstrap: [AppComponent],
 })
 
