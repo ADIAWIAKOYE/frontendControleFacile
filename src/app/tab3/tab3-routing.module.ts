@@ -6,7 +6,11 @@ const routes: Routes = [
   {
     path: '',
     component: Tab3Page,
-  }
+  },
+  {
+    path: 'information/:idappuser',
+    loadChildren: () => import('../information/information.module').then( m => m.InformationPageModule)
+  },
 ];
 
 @NgModule({

@@ -14,7 +14,7 @@
     <!-- <div class="icond col-md-3"> -->
       <div class="cercler">
         <div class="icon">
-         <a routerLink = '/information'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+         <a [routerLink] = "['information', this.iduser]"> <ion-img class="imag" src="{{profv}}" alt=""></ion-img></a>
         </div>
       </div>
     <!-- </div> -->
@@ -32,20 +32,23 @@
   </div>
 
   <div class="card">
-
+    <form (ngSubmit)="updateimage()">
     <div class="inmage">
       <ion-img class="image" src="{{image}}" alt=""></ion-img>
     </div>
-
-    <div class="icons ">
-      <a routerLink = '/compts' class="ire">Modifier</a>
+    
+    <div class="icons">
+      <input  class="custom-file-input" (change)="fileChang($event)" type="file" >
+      <button type="submit" class="ire">Modifier</button> 
       </div>
+    </form>
 
 <div class="Rrow">
+  <form (ngSubmit)="updateEmployee()">
 <ion-list>
             
         <ion-label>Couleur</ion-label>
-        <ion-input type="text" name="nom" placeholder="Couleur"></ion-input>
+        <ion-input type="text" name="nom" [(ngModel)]="couleur"  required [(ngModel)]="cul"></ion-input>
 
       </ion-list>
 
@@ -53,9 +56,9 @@
         <a href="#about" class="btn">Annuler</a>
         &nbsp;
         &nbsp;
-        <a routerLink = '/compts' class="hire">Modifier</a>
+        <button type="submit" class="hire">Modifier</button>
       </div>
-
+    </form>
 </div>
       
 

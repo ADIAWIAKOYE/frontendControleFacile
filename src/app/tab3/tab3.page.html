@@ -16,7 +16,7 @@
     <!-- <div class="icond col-md-3"> -->
       <div class="cercler">
         <div class="icon">
-         <a routerLink = '/information'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+         <a [routerLink] = "['information', this.iduser]"> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
         </div>
       </div>
     </div>
@@ -28,18 +28,16 @@
 
       <div class="trow">
 
-        <div class="item-padd">
+        <div class="item-padd" *ngFor="let alertes of alerte">
           <div class="item-inner ">
               <div class="iimg">
                 <ion-icon name="warning"></ion-icon>
                 <ion-label class="urge" >Urgent</ion-label>
-                <ion-label>01/ 10 / 2023 T 10 H 10 : 00</ion-label>
+                <ion-label>{{alertes.date}}</ion-label>
               </div>
               <div class="conten">
-                <ion-item>vous etes convoquer au commisaria de 
-                  venir regler votre infraction  
-                  du </ion-item>
-                  <ion-label>01/ 10 / 2023 T 10 H 10 : 00</ion-label>
+                <ion-item>{{alertes.contenue}}</ion-item>
+                  <!-- <ion-label>01/ 10 / 2023 T 10 H 10 : 00</ion-label> -->
               </div>
           </div>
        </div>
@@ -47,7 +45,7 @@
 
 
 
-       <div class="item-padd">
+       <!-- <div class="item-padd">
         <div class="item-inner ">
             <div class="iimg">
               <ion-icon name="warning"></ion-icon>
@@ -102,7 +100,7 @@
             <ion-label>01/ 10 / 2023 T 10 H 10 : 00</ion-label>
         </div>
     </div>
- </div>
+ </div> -->
 
 
 

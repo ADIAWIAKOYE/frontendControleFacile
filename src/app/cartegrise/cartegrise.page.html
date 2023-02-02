@@ -17,7 +17,7 @@
       <!-- <div class="icond col-md-3"> -->
         <div class="cercler">
           <div class="icon">
-           <a routerLink = '/information'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+           <a [routerLink] = "['information', this.iduser]"> <ion-img class="imag" src="{{profv}}" alt=""></ion-img></a>
           </div>
         </div>
       <!-- </div> -->
@@ -27,7 +27,7 @@
     </div>
   
     <div class="retu">
-      <a routerLink = '/tabs'> <ion-icon name="chevron-back"></ion-icon></a>
+       <ion-icon (click)=" back()" name="chevron-back"></ion-icon>
      </div>
   
   </div>

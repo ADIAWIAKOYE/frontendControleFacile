@@ -24,6 +24,7 @@ export class VehiculePage implements OnInit {
   vicule: any;
   vehic: any;
   idve: any;
+  profv: any;
 
   constructor( private vehiculeservice: VehiculeService, private storageService: StorageService,) { }
 
@@ -37,7 +38,11 @@ export class VehiculePage implements OnInit {
     //   this.id = idvehicule
     //   console.log("l'ID est "+idvehicule)
 
-
+    if (this.storageService.isLoggedIn()) {
+      this.iduser = this.storageService.getUser().idappuser;
+      this.profv=this.storageService.getUser().profile;
+    }
+    console.log("user est "+this.iduser )
 
       // this.vehiculeservice.getcartegriseVehicule(idvehicule).subscribe(data=>{
       //   this.idvecule=data;

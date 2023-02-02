@@ -22,16 +22,27 @@ export class PermisPage implements OnInit {
   permidateecheance: any;
   permicategorie: any;
   permiprofile: any;
+  profil: any;
+  profv: any;
 
 
   constructor(private permis: PermisService, private storageService: StorageService,) { }
+
+  back(): void {
+    window.history.back()
+  }
 
   ngOnInit() {
 
     if (this.storageService.isLoggedIn()) {
       this.iduser = this.storageService.getUser().idappuser;
+      this.profv=this.storageService.getUser().profile;
+
+      this.profil=this.iduser.profile;
     }
     console.log("permis est "+this.iduser )
+
+    console.log("profile est "+this.profil )
 
     this.permis.getpermis(this.iduser).subscribe(data=>{
       this.perm=data;

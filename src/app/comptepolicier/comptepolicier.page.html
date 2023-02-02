@@ -1,0 +1,84 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>comptepolicier</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div class="header">
+    <div class="icone">
+      <ion-img class="image" src="/assets/icon/logo.png" alt=""></ion-img>
+    </div>
+
+    <!-- <div class="icond col-md-3"> -->
+      <div class="cercler">
+        <div class="icon">
+         <a routerLink = '/informationpolicier'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+        </div>
+      </div>
+    </div>
+
+     <div class="retu">
+       <ion-icon (click)=" back()" name="chevron-back"></ion-icon>
+     </div>
+
+     <div class="bien ">
+      <h2>Modifier compte</h2>
+    </div>
+    <div class="card">
+ <div class="icond ">
+  <div class="cerclef">
+    <div class="iconf">
+     <a routerLink = '/information'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+    </div>
+  </div>
+</div>
+<form >
+<div class="icons ">
+  <input  class="custom-file-input" type="file" >
+  <button type="submit" class="ire">Modifier</button>
+</div>
+</form>
+
+      <div class="Rrow">
+        <form >
+        <ion-list>
+            
+          <ion-label>Nom</ion-label>
+          <ion-input type="text" name="nom" ></ion-input>
+        
+       
+          <ion-label>Prénom</ion-label>
+            <ion-input type="text" name="prenom" ></ion-input>
+          
+          
+            <!-- <ion-label>Profession</ion-label> 
+            <ion-input type="text"  name="profession" ></ion-input> -->
+
+            <ion-label>Domicile</ion-label> 
+            <ion-input type="text" name="domicile" ></ion-input>
+
+              <ion-label>Téléphone</ion-label> 
+              <ion-input type="tel" name="phone" ></ion-input>
+
+              <ion-label>Grade</ion-label>
+              <ion-input type="text" name="commune" ></ion-input>
+        </ion-list>
+
+        <div class="buton">
+          <!-- <a href="#about" class="btn">Deconnecter</a>
+          &nbsp; -->
+          <!-- &nbsp; -->
+          <button type="submit" class="hire">Modifier</button>
+    </div>
+  </form>
+  <!-- <div *ngIf="message" class="alert alert-success" role="alert">
+    <strong>{{message}}</strong>
+  </div> -->
+     </div>
+      
+    
+
+
+    </div>
+</ion-content>

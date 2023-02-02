@@ -18,7 +18,10 @@ const routes: Routes = [
     path: 'modifiervehicule/:idvehicule',
     loadChildren: () => import('../modifiervehicule/modifiervehicule.module').then( m => m.ModifiervehiculePageModule)
   },
-
+  {
+    path: 'information/:idappuser',
+    loadChildren: () => import('../information/information.module').then( m => m.InformationPageModule)
+  },
 ];
 
 @NgModule({

@@ -54,6 +54,22 @@ const routes: Routes = [
     path: 'policier',
     loadChildren: () => import('./policier/policier.module').then( m => m.PolicierPageModule)
   },
+  {
+    path: 'informationpolicier',
+    loadChildren: () => import('./informationpolicier/informationpolicier.module').then( m => m.InformationpolicierPageModule)
+  },
+  {
+    path: 'comptepolicier',
+    loadChildren: () => import('./comptepolicier/comptepolicier.module').then( m => m.ComptepolicierPageModule)
+  },
+  {
+    path: 'associerinfraction',
+    loadChildren: () => import('./associerinfraction/associerinfraction.module').then( m => m.AssocierinfractionPageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
+  },
   // {
   //   path: 'policier1',
   //   loadChildren: () => import('./policier1/policier1.module').then( m => m.Policier1PageModule)

@@ -14,7 +14,7 @@
     <!-- <div class="icond col-md-3"> -->
       <div class="cercler">
         <div class="icon">
-         <a routerLink = '/information'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+         <a [routerLink] = "['information', this.iduser]"> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
         </div>
       </div>
     </div>
@@ -26,21 +26,20 @@
 
       <div class="trow">
 
-        <div class="item-padd">
+        <div class="item-padd" *ngFor="let infractions of infraction">
           <div class="item-inner ">
               <div class="iimg">
                 <ion-icon name="alert-circle"></ion-icon>
                 <ion-label>Infraction</ion-label>
-                <ion-label>01/ 10 / 2023 T 10 H 10 : 00</ion-label>
+                <ion-label>{{infractions[0]}}</ion-label>
               </div>
               <div class="conten">
-                <ion-item>vous avez bruler le feu rouge sans fuite
-                  sur la rue 250 de badalabougou  </ion-item>
+                <ion-item>{{infractions[1]}}</ion-item>
               </div>
               <div class="label">
-                <ion-label>infraction réglé = <span>nom</span></ion-label>
+                <ion-label>infraction réglé = <span>{{infractions[3]}}</span></ion-label>
                 &nbsp;
-                <a routerLink = '/compts' class="hire">AV 7223 MD</a>
+                <a routerLink = '/compts' class="hire">{{infractions[5]}}</a>
               </div>
           </div>
        </div>
@@ -48,7 +47,7 @@
 
 
 
-       <div class="item-padd">
+       <!-- <div class="item-padd">
         <div class="item-inner ">
             <div class="iimg">
               <ion-icon name="alert-circle"></ion-icon>
@@ -108,7 +107,7 @@
           <a routerLink = '/compts' class="hire">AV 7223 MD</a>
         </div>
     </div>
- </div>
+ </div> -->
 
 
 

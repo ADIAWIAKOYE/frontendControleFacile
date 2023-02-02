@@ -14,7 +14,7 @@
     <!-- <div class="icond col-md-3"> -->
       <div class="cercler">
         <div class="icon">
-         <a routerLink = '/information'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+         <a [routerLink] = "['information', this.iduser]"> <ion-img class="imag" src="{{profv}}" alt=""></ion-img></a>
         </div>
       </div>
     <!-- </div> -->
@@ -71,7 +71,7 @@
         <div class="item-inner ">
             <div class="iimg">
              
-          <a routerLink = '/detailinfraction'><ion-icon name="alert-circle"></ion-icon></a>    
+          <a [routerLink] = "['detailinfraction', idvec]" ><ion-icon name="alert-circle"></ion-icon></a>    
             </div>
             <!-- <p>Site web de recyclage D3E</p> -->
             <div class="label">
@@ -95,7 +95,7 @@
       </div>
     </div>
 
-    <div class="trow" *ngIf="!suivant">
+    <div class="trow" *ngIf="suivant">
 
       <div class="item-padd">
         <div class="item-inner ">
@@ -115,7 +115,7 @@
       <div class="item-padd">
         <div class="item-inner">
           <div class="iimg">
-          <a routerLink = '/cartegrise'><ion-icon name="archive"></ion-icon></a> 
+          <a routerLink = '/associerinfraction'><ion-icon name="archive"></ion-icon></a> 
           </div>
           <div class="label">
              <ion-label>Associer une<br>infraction</ion-label>

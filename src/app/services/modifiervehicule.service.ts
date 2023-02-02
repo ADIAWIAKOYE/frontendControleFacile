@@ -16,11 +16,25 @@ export class ModifiervehiculeService {
     return this.http.get<any>(  AUTH_API + `vehicule/afficherParId/${idvehicule}`)
   }
 
-  modifierimageVehicule(idvehicule: any, file : any):Observable<any>
+  modifierimageVehicule(idvehicule: any, couleur : any):Observable<any>
   {
-    let data = new FormData();
+    let data = {
+      "couleur":couleur
+      }
 
-    return this.http.put<any>(  AUTH_API + `vehicule/updateImage/${idvehicule}`, data)
+    return this.http.put<any>(  AUTH_API + `vehicule/update/${idvehicule}`, data)
+  }
+
+
+  modiimageVehicule(idvehicule: any, file : File):Observable<any>
+  {
+    let data =new FormData();
+    data.append("file",file);
+
+    console.log("id du vehicule  est "+idvehicule)
+
+    console.log(file)
+    return this.http.put<any>(    `${AUTH_API}vehicule/updateImage/${idvehicule}`, data)
   }
 
 

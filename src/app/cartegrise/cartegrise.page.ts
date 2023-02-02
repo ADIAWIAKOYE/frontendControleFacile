@@ -36,10 +36,23 @@ export class CartegrisePage implements OnInit {
   chassiei: any;
   dpmci: any;
   validite: any;
+  iduser: any;
+  profv: any;
   constructor(private storageService: StorageService, private route: ActivatedRoute, private cartegriseservice: CartegriseService,) { }
-
+ 
+  back(): void {
+    window.history.back()
+  }
 
   ngOnInit() {
+
+
+    if (this.storageService.isLoggedIn()) {
+      this.iduser = this.storageService.getUser().idappuser;
+      this.profv=this.storageService.getUser().profile;
+    }
+    console.log("user est "+this.iduser )
+
     const idvehicule = this.route.snapshot.params['idvehicule']
   this.id = idvehicule
   console.log("l'ID est "+idvehicule)

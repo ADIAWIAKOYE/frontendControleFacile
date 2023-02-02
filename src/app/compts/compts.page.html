@@ -13,13 +13,13 @@
     <!-- <div class="icond col-md-3"> -->
       <div class="cercler">
         <div class="icon">
-         <a routerLink = '/information'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+         <a [routerLink] = "['information', this.iduser]"> <ion-img class="imag" src="{{profv}}" alt=""></ion-img></a>
         </div>
       </div>
     </div>
 
      <div class="retu">
-      <a routerLink = '/tabs'> <ion-icon name="chevron-back"></ion-icon></a>
+       <ion-icon (click)=" back()" name="chevron-back"></ion-icon>
      </div>
 
      <div class="bien ">
@@ -29,48 +29,54 @@
  <div class="icond ">
   <div class="cerclef">
     <div class="iconf">
-     <a routerLink = '/information'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+     <a routerLink = '/information'> <ion-img class="imag" src="{{profilu}}" alt=""></ion-img></a>
     </div>
   </div>
 </div>
+<form (ngSubmit)="updateimage()">
 <div class="icons ">
-<a routerLink = '/compts' class="ire">Modifier</a>
+  <input  class="custom-file-input" (change)="fileChang($event)" type="file" >
+  <button type="submit" class="ire">Modifier</button>
 </div>
+</form>
 
       <div class="Rrow">
-        
+        <form (ngSubmit)="updateutilisateur()">
         <ion-list>
             
           <ion-label>Nom</ion-label>
-          <ion-input type="text" name="nom" placeholder="Nom"></ion-input>
+          <ion-input type="text" name="nom" [(ngModel)]="nom" required [(ngModel)]="nomu"></ion-input>
         
        
           <ion-label>Prénom</ion-label>
-            <ion-input type="text" name="prenom" placeholder="Prénom"></ion-input>
+            <ion-input type="text" name="prenom" [(ngModel)]="prenom" required [(ngModel)]="prenomu"></ion-input>
           
           
             <ion-label>Profession</ion-label> 
-            <ion-input type="text"  name="profession" placeholder="Profession"></ion-input>
+            <ion-input type="text"  name="profession" [(ngModel)]="profession" required [(ngModel)]="professionu"></ion-input>
 
             <ion-label>Domicile</ion-label> 
-            <ion-input type="text" name="domicile" placeholder="Domicile"></ion-input>
+            <ion-input type="text" name="domicile" [(ngModel)]="domicile" required [(ngModel)]="domicileu"></ion-input>
         
        
             <ion-label>Commune</ion-label>
-              <ion-input type="text" name="commune" placeholder="Commune"></ion-input>
+              <ion-input type="text" name="commune" [(ngModel)]="commune" required [(ngModel)]="communeu"></ion-input>
             
             
               <ion-label>Téléphone</ion-label> 
-              <ion-input type="tel" name="phone" placeholder="Téléphone"></ion-input>
+              <ion-input type="tel" name="phone" [(ngModel)]="telephone" required [(ngModel)]="telephoneu"></ion-input>
         </ion-list>
 
         <div class="buton">
           <!-- <a href="#about" class="btn">Deconnecter</a>
           &nbsp; -->
           <!-- &nbsp; -->
-          <a routerLink = '/compts' class="hire">Modifier</a>
+          <button type="submit" class="hire">Modifier</button>
     </div>
-    
+  </form>
+  <div *ngIf="message" class="alert alert-success" role="alert">
+    <strong>{{message}}</strong>
+  </div>
      </div>
       
     

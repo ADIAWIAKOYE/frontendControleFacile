@@ -9,13 +9,13 @@
     <!-- <div class="icond col-md-3"> -->
       <div class="cercler">
         <div class="icon">
-         <a routerLink = '/information'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+          <ion-img class="imag" src="{{profv}}" alt=""></ion-img>
         </div>
       </div>
     </div>
 
      <div class="retu">
-      <a routerLink = '/tabs'> <ion-icon name="chevron-back"></ion-icon></a>
+     <ion-icon (click)=" back()" name="chevron-back"></ion-icon>
      </div>
 
      <div class="bien ">
@@ -25,25 +25,25 @@
 
       <div class="prow">
         <div class="info-item">
-           <p>Nom : <span>ADIAWIAKOYE</span></p>
+           <p>Nom : <span>{{nomu}}</span></p>
         </div>
         <div class="info-item">
-           <p>Prenom : <span>Ahmadou</span></p>
+           <p>Prenom : <span>{{prenomu}}</span></p>
         </div>
         <div class="info-item">
-           <p>Né lé : <span> 10 / 10 / 1999 à Diré</span></p>
+           <p>Né lé : <span> {{datenaissanceu}} à {{lieunaissanceu}}</span></p>
         </div>
         <div class="info-item">
-           <p>Profession : <span>Etudiant</span></p>
+           <p>Profession : <span>{{professionu}}</span></p>
         </div>
         <div class="info-item">
-           <p>Commune : <span>VI</span></p>
+           <p>Commune : <span>{{communeu}}</span></p>
         </div>
         <div class="info-item">
-           <p>Domicile : <span>yirimadio rue : 123 porte : 6543</span></p>
+           <p>Domicile : <span>{{domicileu}}</span></p>
         </div>
         <div class="info-item">
-           <p>Téléphone : <span>+223 75468913</span></p>
+           <p>Téléphone : <span>{{telephoneu}}</span></p>
         </div>
         <!-- <div class="info-item">
            <p>Discord : <a href=""><span>diadia#1491</span></a></p>

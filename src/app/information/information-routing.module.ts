@@ -7,7 +7,18 @@ const routes: Routes = [
   {
     path: '',
     component: InformationPage
-  }
+  },
+
+  // {
+  //   path: 'compts/:idappuser',
+  //   loadChildren: () => import('../compts/compts.module').then( m => m.ComptsPageModule)
+  // },
+
+  // {
+  //   path: '/:idappuser',
+  //   loadChildren: () => import('../information/information.module').then( m => m.InformationPageModule)
+  // },
+
 ];
 
 @NgModule({

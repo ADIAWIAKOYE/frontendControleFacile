@@ -12,6 +12,14 @@ const routes: Routes = [
     path: 'cartegrise/:idvehicule',
     loadChildren: () => import('../cartegrise/cartegrise.module').then( m => m.CartegrisePageModule)
   },
+  {
+    path: 'information/:idappuser',
+    loadChildren: () => import('../information/information.module').then( m => m.InformationPageModule)
+  },
+  {
+    path: 'detailinfraction/:idvehicule',
+    loadChildren: () => import('../detailinfraction/detailinfraction.module').then( m => m.DetailinfractionPageModule)
+  },
 ];
 
 @NgModule({

@@ -21,6 +21,8 @@ export class DetailvehiculePage implements OnInit {
   vecule: any;
   coul: any;
   idvec: any;
+  iduser: any;
+  profv: any;
 
   constructor(private storageService: StorageService, private route: ActivatedRoute, private vehiculeservice: VehiculeService,) { }
 
@@ -36,9 +38,14 @@ export class DetailvehiculePage implements OnInit {
   ngOnInit() {
     if (this.storageService.isLoggedIn()) {
       this.roles = this.storageService.getUser().roles;
+      this.iduser = this.storageService.getUser().idappuser;
+      this.profv=this.storageService.getUser().profile;
       if (this.roles == 'ROLE_USER'){
-        this.suivant ==  false;
+        this.suivant =  false;
+      }else{
+        this.suivant = true;
       }
+      console.log("le role est  "+this.roles)
     }
 
 

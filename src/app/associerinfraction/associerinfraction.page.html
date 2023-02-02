@@ -1,0 +1,114 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>associerinfraction</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+
+  <div class="header">
+    <div class="icone">
+      <ion-img class="image" src="/assets/icon/logo.png" alt=""></ion-img>
+    </div>
+
+    <!-- <div class="icond col-md-3"> -->
+      <div class="cercler">
+        <div class="icon">
+         <a routerLink = '/informationpolicier'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+        </div>
+      </div>
+    <!-- </div> -->
+    <!-- <div class="icon">
+      <ion-img class="image" src="/assets/icon/logo.png" alt=""></ion-img>
+    </div> -->
+  </div>
+
+  <div class="retu">
+    <ion-icon (click)="back()" name="chevron-back"></ion-icon>
+   </div>
+
+   <div class="bien ">
+    <h2>Associer une infraction</h2>
+  </div>
+
+  <div class="card">
+
+    <div padding>
+      <ion-segment [(ngModel)]="cat">
+        <ion-segment-button value="men">
+          avec permis
+        </ion-segment-button>
+        <ion-segment-button value="women">
+          sans permis
+        </ion-segment-button>
+        </ion-segment>
+    </div>
+
+
+    <div [ngSwitch]="cat">
+      <form *ngSwitchCase="'men'">
+      <ion-list >
+        <ion-label>Lieu</ion-label> 
+        <ion-input type="text" name="nom" placeholder="Entez le lieu de l'infraction"></ion-input>
+      
+     
+        <ion-label>Description</ion-label> 
+        <ion-textarea rows="6" cols="20" placeholder="Entez une description de l'infraction ......"></ion-textarea>
+
+        <ion-label>Amende</ion-label>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Selectionner un amende</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+
+          <ion-label>N° permis</ion-label>
+          <ion-input type="text" name="commune" placeholder="Entez le n°premis du conducteur"></ion-input>
+
+          <ion-label>montant payer</ion-label>
+          <ion-input type="text" name="commune" placeholder="Entez le montant payer par le conducteur" ></ion-input>
+      </ion-list>
+      <div class="buton">
+        <!-- <a href="#about" class="btn">Deconnecter</a>
+        &nbsp; -->
+        <!-- &nbsp; -->
+        <button type="submit" class="hire">Modifier</button>
+  </div>
+
+    </form>
+    <form *ngSwitchCase="'women'">
+      <ion-list >
+        <ion-label>Lieu</ion-label> 
+        <ion-input type="text" name="domicile" placeholder="Entez le lieu de l'infraction"></ion-input>
+
+          <ion-label>Description</ion-label> 
+          <ion-textarea rows="6" cols="20" placeholder="Entez une description de l'infraction ......"></ion-textarea>
+
+          <ion-label>Amende</ion-label>
+          <!-- <ion-input type="text" name="commune" ></ion-input> -->
+          
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Selectionner un amende</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        
+
+     </ion-list>
+     <div class="buton">
+      <!-- <a href="#about" class="btn">Deconnecter</a>
+      &nbsp; -->
+      <!-- &nbsp; -->
+      <button type="submit" class="hire">Modifier</button>
+</div>
+    </form>
+    </div>
+
+
+  </div>
+
+
+</ion-content>

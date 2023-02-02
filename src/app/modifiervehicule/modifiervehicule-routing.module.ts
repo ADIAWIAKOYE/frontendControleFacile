@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: ModifiervehiculePage
-  }
+  },
+  {
+    path: 'information/:idappuser',
+    loadChildren: () => import('../information/information.module').then( m => m.InformationPageModule)
+  },
 ];
 
 @NgModule({
