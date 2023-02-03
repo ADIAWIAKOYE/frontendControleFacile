@@ -52,9 +52,12 @@
             
           </ion-toolbar>
         </ion-header>
-        <ion-content class="ion-padding">
+        <ion-content class="ion-paddin">
           <ion-button (click)="scan()">Scanner le QR Code</ion-button>
-          {{code}}
+          <div class="code">
+            {{code}}
+          </div>
+          
           <!-- <ion-item>
             <ion-label position="stacked">Enter your name</ion-label>
             <ion-input type="text" placeholder="Your name" [(ngModel)]="name"></ion-input>

@@ -59,6 +59,21 @@ ion-button{
     font-weight: 600;
 
 }
+.ion-paddin{
+    text-align: center;
+}
+.ion-paddin ion-button{
+    width: 80%;
+    // margin-left: auto;
+    // margin-right: auto;
+    // margin-top: 15%;
+    --background: #FFFFFF;
+    color: #000;
+    // --border-radius: 10px;
+    --font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 600;
+}
 ion-title{
     color: #FFFFFF;
 }

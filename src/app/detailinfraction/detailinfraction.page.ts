@@ -15,7 +15,7 @@ import { VehiculeService } from '../services/vehicule.service';
 export class DetailinfractionPage implements OnInit {
 
   suivant : boolean = true;
-
+  statuss : boolean = true;
   iduser: any;
   profv: any;
   roles: any;
@@ -52,6 +52,7 @@ export class DetailinfractionPage implements OnInit {
   nextStep() {
 
     this.suivant = false;
+    this.statuss = false;
     }
 
 
@@ -103,8 +104,13 @@ export class DetailinfractionPage implements OnInit {
 
       this.infractionservice.getinfractionParuser(idvehicule).subscribe(data=>{
         this.infraction=data;
-          
         console.log("infraction est "+this.infraction)
+
+        if (this.infraction.status == true){
+          this.statuss =  false;
+        }else{
+          this.statuss = true;
+        }
 
         for(let infractions of this.infraction){
           console.log("permis est "+infractions.description)

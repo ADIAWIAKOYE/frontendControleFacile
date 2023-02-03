@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+//import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // import { Camera } from '@capacitor/camera';
 // import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';

@@ -11,6 +11,14 @@ export class VehiculeService {
 
   constructor(private http:HttpClient) { }
 
+
+  getlistervehicule():Observable<any>
+  {
+    return this.http.get<any>(  AUTH_API + `vehicule/afficher`)
+  }
+
+
+
   getvehicule(iduser: any):Observable<any>
   {
     return this.http.get<any>(  AUTH_API + `vehicule/user/${iduser}`)
