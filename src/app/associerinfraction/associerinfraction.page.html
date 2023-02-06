@@ -15,7 +15,7 @@
     <!-- <div class="icond col-md-3"> -->
       <div class="cercler">
         <div class="icon">
-         <a routerLink = '/informationpolicier'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+         <a [routerLink] = "['/informationpolicier', this.iduser]"> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
         </div>
       </div>
     <!-- </div> -->
@@ -47,53 +47,53 @@
 
 
     <div [ngSwitch]="cat">
-      <form *ngSwitchCase="'men'">
+      <form *ngSwitchCase="'men'" (ngSubmit)="submit1()">
       <ion-list >
         <ion-label>Lieu</ion-label> 
-        <ion-input type="text" name="nom" placeholder="Entez le lieu de l'infraction"></ion-input>
+        <ion-input type="text" name="lieu" placeholder="Entez le lieu de l'infraction" [(ngModel)]="lieu" ></ion-input>
       
      
         <ion-label>Description</ion-label> 
-        <ion-textarea rows="6" cols="20" placeholder="Entez une description de l'infraction ......"></ion-textarea>
+        <ion-textarea rows="6" cols="20" placeholder="Entez une description de l'infraction ......" [(ngModel)]="description"  name="description"></ion-textarea>
 
         <ion-label>Amende</ion-label>
-        <select class="form-select" aria-label="Default select example">
+        <select class="form-select" aria-label="Default select example" name="amende"  [(ngModel)]="amende" >
           <option selected>Selectionner un amende</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option *ngFor="let amendes of amendeee" value="{{amendes.montant}}">{{amendes.montant}} FCFA</option>
+          <!-- <option value="2">Two</option>
+          <option value="3">Three</option> -->
         </select>
 
           <ion-label>N° permis</ion-label>
-          <ion-input type="text" name="commune" placeholder="Entez le n°premis du conducteur"></ion-input>
+          <ion-input type="text" name="permis" placeholder="Entez le n°premis du conducteur"  [(ngModel)]="permis"></ion-input>
 
           <ion-label>montant payer</ion-label>
-          <ion-input type="text" name="commune" placeholder="Entez le montant payer par le conducteur" ></ion-input>
+          <ion-input type="text" name="montantpaye" placeholder="Entez le montant payer par le conducteur"  [(ngModel)]="montantpaye"></ion-input>
       </ion-list>
       <div class="buton">
         <!-- <a href="#about" class="btn">Deconnecter</a>
         &nbsp; -->
         <!-- &nbsp; -->
-        <button type="submit" class="hire">Modifier</button>
+        <button type="submit" class="hire">Envoyer</button>
   </div>
 
     </form>
-    <form *ngSwitchCase="'women'">
+    <form *ngSwitchCase="'women'" (ngSubmit)="submit2()">
       <ion-list >
         <ion-label>Lieu</ion-label> 
-        <ion-input type="text" name="domicile" placeholder="Entez le lieu de l'infraction"></ion-input>
+        <ion-input type="text" name="lieus" placeholder="Entez le lieu de l'infraction" [(ngModel)]="lieus" ></ion-input>
 
           <ion-label>Description</ion-label> 
-          <ion-textarea rows="6" cols="20" placeholder="Entez une description de l'infraction ......"></ion-textarea>
+          <ion-textarea rows="6" cols="20" placeholder="Entez une description de l'infraction ......" [(ngModel)]="descriptions"  name="descriptions"></ion-textarea>
 
           <ion-label>Amende</ion-label>
           <!-- <ion-input type="text" name="commune" ></ion-input> -->
           
-          <select class="form-select" aria-label="Default select example">
+          <select class="form-select" aria-label="Default select example" name="amendes"  [(ngModel)]="amendes" >
             <option selected>Selectionner un amende</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option *ngFor="let amendes of amendeee" value="{{amendes.montant}}">{{amendes.montant}} FCFA</option>
+            <!-- <option value="2">Two</option>
+            <option value="3">Three</option> -->
           </select>
         
 
@@ -102,8 +102,8 @@
       <!-- <a href="#about" class="btn">Deconnecter</a>
       &nbsp; -->
       <!-- &nbsp; -->
-      <button type="submit" class="hire">Modifier</button>
-</div>
+      <button type="submit" class="hire">Envoyer</button>
+     </div>
     </form>
     </div>
 

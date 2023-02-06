@@ -14,19 +14,19 @@
     <!-- <div class="icond col-md-3"> -->
       <div class="cercler">
         <div class="icon">
-         <a routerLink = '/informationpolicier'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
+         <a [routerLink] = "['/informationpolicier', this.iduser]" routerLinkActive="active"> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
         </div>
       </div>
     </div>
 
     <div class="bien ">
       <!-- <h2>Scanner le QR Code</h2> -->
-      <ion-searchbar show-clear-button = "focus" ></ion-searchbar>
+      <ion-searchbar show-clear-button = "focus" placeholder="Search..." [(ngModel)]="filterTerm" type="text"></ion-searchbar>
     </div>
 
     <div class="card">
-
-      <div class="item-padd" *ngFor="let vehicle of vehicul">
+ <!-- | filter:filterTerm  -->
+      <div class="item-padd" *ngFor="let vehicle of vehicul | filter: filterTerm">
         <div class="vehic">
           <div class="inmage">
                <ion-img class="image" src="{{vehicle.photovehicule}}" alt=""></ion-img>
@@ -38,7 +38,7 @@
             <p>Couleur : <span>{{vehicle.couleur}}</span></p>
           </div>
           <div class="buton">
-            <a [routerLink] = "['detailvehicule', vehicle.idvehicule]" routerLinkActive="active"  class="hire">{{vehicle.plaqueimatri}}</a>
+            <a [routerLink] = "['/detailvehicule', vehicle.idvehicule]" routerLinkActive="active"  class="hire">{{vehicle.plaqueimatri}}</a>
             &nbsp;
             <!-- &nbsp; -->
             <!-- <a routerLink = '/modifiervehicule' class="btn">Modifier</a> -->
@@ -52,7 +52,7 @@
 
 
 
-      <div class="item-padd">
+      <!-- <div class="item-padd">
         <div class="vehic">
           <div class="inmage">
                <ion-img class="image" src="/assets/icon/Rectangle 332.png" alt=""></ion-img>
@@ -66,12 +66,12 @@
           <div class="buton">
             <a routerLink = '/detailvehicule'  class="hire">AV 7223 MD</a>
             &nbsp;
-            <!-- &nbsp; -->
-            <!-- <a routerLink = '/modifiervehicule' class="btn">Modifier</a> -->
+            &nbsp;
+            <a routerLink = '/modifiervehicule' class="btn">Modifier</a>
               </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
 

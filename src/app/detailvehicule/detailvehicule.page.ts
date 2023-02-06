@@ -23,6 +23,7 @@ export class DetailvehiculePage implements OnInit {
   idvec: any;
   iduser: any;
   profv: any;
+  routere: any;
 
   constructor(private storageService: StorageService, private route: ActivatedRoute, private vehiculeservice: VehiculeService,) { }
 
@@ -41,8 +42,10 @@ export class DetailvehiculePage implements OnInit {
       this.iduser = this.storageService.getUser().idappuser;
       this.profv=this.storageService.getUser().profile;
       if (this.roles == 'ROLE_USER'){
+        this.routere = 'information'
         this.suivant =  false;
       }else{
+        this.routere = '/informationpolicier'
         this.suivant = true;
       }
       console.log("le role est  "+this.roles)

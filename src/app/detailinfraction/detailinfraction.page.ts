@@ -29,6 +29,7 @@ export class DetailinfractionPage implements OnInit {
   coul: any;
   plaq: any;
   idvec: any;
+  routere: any;
 
   constructor(private route: ActivatedRoute,  private vehiculeservice: VehiculeService, private storageService: StorageService, private modalController: ModalController, private infractionservice : InfractionService ) { }
 
@@ -52,6 +53,7 @@ export class DetailinfractionPage implements OnInit {
   nextStep() {
 
     this.suivant = false;
+
     this.statuss = false;
     }
 
@@ -66,8 +68,10 @@ export class DetailinfractionPage implements OnInit {
       this.profv=this.storageService.getUser().profile;
 
       if (this.roles == 'ROLE_USER'){
+        this.routere = 'information'
         this.suivant =  false;
       }else{
+        this.routere = '/informationpolicier'
         this.suivant = true;
       }
     }
@@ -106,18 +110,19 @@ export class DetailinfractionPage implements OnInit {
         this.infraction=data;
         console.log("infraction est "+this.infraction)
 
-        if (this.infraction.status == true){
-          this.statuss =  false;
-        }else{
-          this.statuss = true;
-        }
+
 
         for(let infractions of this.infraction){
-          console.log("permis est "+infractions.description)
-          console.log("id vehicule est "+infractions.lieu)
-          this.idve = infractions.idvehicule;
-
-          console.log("id vehicule est "+this.idve)
+          console.log("la description de l'infraction est "+infractions.description)
+          console.log("le lieu de l'infraction est "+infractions.lieu)
+          console.log("les status sont  est "+infractions.status)
+          //this.idve = infractions.idvehicule;
+          if (infractions.status = true){
+            this.statuss =  false;
+          }else  if (infractions.status = false){
+            this.statuss = true;
+          }
+          console.log("id vehicule est "+ infractions.idvehicule)
         }
       });
   }

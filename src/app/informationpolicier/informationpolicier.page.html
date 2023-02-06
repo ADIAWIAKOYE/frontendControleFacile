@@ -23,25 +23,25 @@
 
       <div class="prow">
         <div class="info-item">
-           <p>Nom : <span>ADIAWIAKOYE</span></p>
+           <p>Nom : <span>{{nomu}}</span></p>
         </div>
         <div class="info-item">
-           <p>Prenom : <span>Ahmadou</span></p>
+           <p>Prenom : <span>{{prenomu}}</span></p>
         </div>
         <div class="info-item">
-           <p>Email : <span> adiawiakoye.le10@gmail.com</span></p>
+           <p>Email : <span> {{emailu}}</span></p>
         </div>
         <div class="info-item">
-           <p>Domicile : <span>badalabougou rue : 19 porte : 1233</span></p>
+           <p>Domicile : <span>{{domicileu}}</span></p>
         </div>
         <div class="info-item">
-           <p>Téléphone : <span>+22375468913</span></p>
+           <p>Téléphone : <span>{{telephoneu}}</span></p>
         </div>
         <div class="info-item">
-          <p>Grade : <span>Sergent</span></p>
+          <p>Grade : <span>{{gradeu}}</span></p>
        </div>
        <div class="info-item">
-        <p>Matricule : <span>AZERESS234636327H</span></p>
+        <p>Matricule : <span>{{matriculeu}}</span></p>
      </div>
         <!-- <div class="info-item">
            <p>Discord : <a href=""><span>diadia#1491</span></a></p>
@@ -52,7 +52,7 @@
            <a href="#about" class="btn">Deconnecter</a>
            &nbsp;
            &nbsp;
-           <a routerLink = '/comptepolicier' class="hire">Modifier</a>
+           <a [routerLink] = "['/comptepolicier', this.iduser]" class="hire">Modifier</a>
      </div>
 
 

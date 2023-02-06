@@ -41,28 +41,27 @@
 </form>
 
       <div class="Rrow">
-        <form >
+        <form (ngSubmit)="updatepolicier()">
         <ion-list>
             
-          <ion-label>Nom</ion-label>
-          <ion-input type="text" name="nom" ></ion-input>
+                <ion-label>Nom</ion-label>
+                <ion-input type="text" name="nom" [(ngModel)]="nom"  required [(ngModel)]="nomu"></ion-input>
         
-       
-          <ion-label>Prénom</ion-label>
-            <ion-input type="text" name="prenom" ></ion-input>
-          
-          
-            <!-- <ion-label>Profession</ion-label> 
-            <ion-input type="text"  name="profession" ></ion-input> -->
+                <ion-label>Prénom</ion-label>
+                <ion-input type="text" name="prenom" [(ngModel)]="prenom"  required [(ngModel)]="prenomu"></ion-input>
+              
+                <ion-label>Email</ion-label> 
+                <ion-input type="Email"  name="email" [(ngModel)]="email"  required [(ngModel)]="emailu"></ion-input>
 
-            <ion-label>Domicile</ion-label> 
-            <ion-input type="text" name="domicile" ></ion-input>
+                <ion-label>Domicile</ion-label> 
+                <ion-input type="text" name="domicile" [(ngModel)]="domicile"   required [(ngModel)]="domicileu"></ion-input>
 
-              <ion-label>Téléphone</ion-label> 
-              <ion-input type="tel" name="phone" ></ion-input>
+                <ion-label>Téléphone</ion-label> 
+                <ion-input type="tel" name="telephone" [(ngModel)]="telephone"  required [(ngModel)]="telephoneu"></ion-input>
 
-              <ion-label>Grade</ion-label>
-              <ion-input type="text" name="commune" ></ion-input>
+                <ion-label>Grade</ion-label>
+                <ion-input type="text" name="grade" [(ngModel)]="grade"  required [(ngModel)]="gradeu"></ion-input>
+
         </ion-list>
 
         <div class="buton">

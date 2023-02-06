@@ -30,4 +30,21 @@ export class InfractionService {
     return this.http.get<any>(  AUTH_API + `infraction/infractionparvehicule/${idvehicule}`)
   }
 
+
+  getamende():Observable<any>
+  {
+    return this.http.get(  AUTH_API + `amende/afficheramende`)
+  }
+
+
+
+  postinfractionavecpermis(telephone: string, password: string):Observable<any>
+  {
+    return this.http.post(  AUTH_API + `amende/afficheramende`,
+    {
+      telephone,
+      password,
+    },)
+  }
+
 }

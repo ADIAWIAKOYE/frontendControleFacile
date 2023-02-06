@@ -35,7 +35,7 @@ const routes: Routes = [
     loadChildren: () => import('./vehicule/vehicule.module').then( m => m.VehiculePageModule)
   },
   {
-    path: 'detailvehicule',
+    path: 'detailvehicule/:idvehicule',
     loadChildren: () => import('./detailvehicule/detailvehicule.module').then( m => m.DetailvehiculePageModule)
   },
   {
@@ -55,11 +55,11 @@ const routes: Routes = [
     loadChildren: () => import('./policier/policier.module').then( m => m.PolicierPageModule)
   },
   {
-    path: 'informationpolicier',
+    path: 'informationpolicier/:idappuser',
     loadChildren: () => import('./informationpolicier/informationpolicier.module').then( m => m.InformationpolicierPageModule)
   },
   {
-    path: 'comptepolicier',
+    path: 'comptepolicier/:idappuser',
     loadChildren: () => import('./comptepolicier/comptepolicier.module').then( m => m.ComptepolicierPageModule)
   },
   {
@@ -69,6 +69,10 @@ const routes: Routes = [
   {
     path: 'modal',
     loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
+  },
+  {
+    path: 'permisp',
+    loadChildren: () => import('./permisp/permisp.module').then( m => m.PermispPageModule)
   },
   // {
   //   path: 'policier1',

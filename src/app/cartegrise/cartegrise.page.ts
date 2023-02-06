@@ -38,6 +38,8 @@ export class CartegrisePage implements OnInit {
   validite: any;
   iduser: any;
   profv: any;
+  routere: any;
+  roles: any;
   constructor(private storageService: StorageService, private route: ActivatedRoute, private cartegriseservice: CartegriseService,) { }
  
   back(): void {
@@ -50,12 +52,20 @@ export class CartegrisePage implements OnInit {
     if (this.storageService.isLoggedIn()) {
       this.iduser = this.storageService.getUser().idappuser;
       this.profv=this.storageService.getUser().profile;
+
+      if (this.roles == 'ROLE_USER'){
+        this.routere = 'information'
+        // this.suivant =  false;
+      }else{
+        this.routere = '/informationpolicier'
+        // this.suivant = true;
+      }
     }
     console.log("user est "+this.iduser )
 
     const idvehicule = this.route.snapshot.params['idvehicule']
-  this.id = idvehicule
-  console.log("l'ID est "+idvehicule)
+    this.id = idvehicule
+    console.log("l'ID est "+idvehicule)
 
 
 

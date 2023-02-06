@@ -7,7 +7,7 @@ import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 // import { Camera } from '@capacitor/camera';
 // import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -21,7 +21,8 @@ import { AppComponent } from './app.component';
      IonicModule.forRoot(), 
      AppRoutingModule,
      FormsModule,
-     HttpClientModule],
+     HttpClientModule,
+     Ng2SearchPipeModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, QRScanner, BarcodeScanner],
   bootstrap: [AppComponent],
 })

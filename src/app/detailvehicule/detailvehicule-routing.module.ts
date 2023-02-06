@@ -20,6 +20,20 @@ const routes: Routes = [
     path: 'detailinfraction/:idvehicule',
     loadChildren: () => import('../detailinfraction/detailinfraction.module').then( m => m.DetailinfractionPageModule)
   },
+
+    {
+    path: 'permisp/:idvehicule',
+    loadChildren: () => import('../permisp/permisp.module').then( m => m.PermispPageModule)
+  },
+  {
+    path: 'associerinfraction/:idvehicule',
+    loadChildren: () => import('../associerinfraction/associerinfraction.module').then( m => m.AssocierinfractionPageModule)
+  },
+
+  // {
+  //   path: 'permisp/:idappuser',
+  //   loadChildren: () => import('../permisp/permisp.module').then( m => m.PermispPageModule)
+  // },
 ];
 
 @NgModule({

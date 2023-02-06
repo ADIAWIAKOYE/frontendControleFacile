@@ -15,4 +15,11 @@ export class PermisService {
   {
     return this.http.get<any>(  AUTH_API + `utilisateur/afficher/${iduser}`)
   }
+
+
+  getpermisparvehicule(idvehicule: any):Observable<any>
+  {
+    return this.http.get<any>(  AUTH_API + `permis/permis/vehicule/${idvehicule}`)
+  }
+
 }

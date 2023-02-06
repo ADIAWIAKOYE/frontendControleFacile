@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { EmailValidator } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 
@@ -44,5 +45,20 @@ export class CompteService {
       }
 
     return this.http.put<any>(  AUTH_API + `utilisateur/Update/${idvehicule}`, data)
+  }
+
+  ///////////////////////////////Comptpolicier///////////////////////////////////////////////
+
+  modifierPolicier(idappuser: any, nom : string, prenom : string, domicile : string, telephone : string, email : string, grade : string):Observable<any>
+  {
+    let data =new FormData();
+    data.append("nom", nom);
+    data.append("prenom", prenom);
+    data.append("domicile", domicile);
+    data.append("telephone", telephone);
+    data.append("email", email);
+    data.append("grade", grade);
+    console.log("la grade est:------------------",grade);
+    return this.http.put<any>(  AUTH_API + `policier/Update/${idappuser}`, data)
   }
 }

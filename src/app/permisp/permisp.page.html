@@ -1,0 +1,101 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>permisp</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <div class="head">
+
+  
+    <div class="header">
+      <div class="icone">
+        <ion-img class="image" src="/assets/icon/logo.png" alt=""></ion-img>
+      </div>
+  
+      <!-- <div class="icond col-md-3"> -->
+        <div class="cercler">
+          <div class="icon">
+           <a [routerLink] = "['/informationpolicier', this.iduser]"> <ion-img class="imag" src="{{profv}}" alt=""></ion-img></a>
+          </div>
+        </div>
+      <!-- </div> -->
+      <!-- <div class="icon">
+        <ion-img class="image" src="/assets/icon/logo.png" alt=""></ion-img>
+      </div> -->
+    </div>
+  
+    <div class="retu">
+       <ion-icon (click)="back()" name="chevron-back"></ion-icon>
+     </div>
+  
+  </div>
+
+  <div class="card">
+
+
+    <div class="entete">
+      <div class="cone">
+        <ion-img class="image" src="/assets/icon/symboles.png" alt=""></ion-img>
+      </div>
+     
+      <div class="ministre">
+         <p>République du Mali
+          Ministre des transports</p>
+      </div>
+      <div class="cone">
+         <ion-img class="image" src="/assets/icon/Mali.png" alt=""></ion-img>
+      </div>
+    </div>
+    <div class="mis">
+      <p>Permis de Conduire Malien</p>
+    </div>
+    <div class="ete">
+          <div class="coneg">
+            <ion-img class="image" src="{{permiprofilep}}" alt=""></ion-img>
+          </div>
+           &nbsp;
+          <div class="item">
+            <div class="info-item">
+              <p>Nom : <span>{{perminomp}}</span></p>
+            </div>
+            <div class="info-item">
+              <p>Prenom : <span>{{permiprenomp}}</span></p>
+            </div>
+            <div class="info-item">
+              <p>Né lé : <span>{{permidatenaissancep}}</span> à <span>{{permilieunaissancep}}</span></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="prow">
+    
+          <div class="info-item">
+            <p>Domicile : <span>{{permidomicilep}}</span></p>
+          </div>
+          <div class="info-item">
+            <p>Profession : <span>{{permiprofessionp}}</span></p>
+          </div>
+          <div class="info-item">
+            <p>N° Permis : <span>{{perminump}}</span></p>
+          </div>
+          <div class="info-item">
+            <p>Délivre lé : <span>{{permidatelivraisonp}}  à  BAMAKO</span></p>
+          </div>
+          <div class="info-item">
+            <p>date d’expiration : <span>{{permidateecheancep}}</span></p>
+          </div>
+          <div class="info-item">
+            <p>Catégorie du permis  : <span>{{permicategoriep}}</span></p>
+          </div>
+    </div>
+    
+    <div class="desc">
+      <p>Véhicules automobiles de moins de 10 places et dont 
+        le poids tout autorisé en charge excède 3500 kg</p>
+    </div>
+
+  </div>
+
+</ion-content>

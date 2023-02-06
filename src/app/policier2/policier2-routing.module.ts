@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: Policier2Page
-  }
+  },
+  // {
+  //   path: 'informationpolicier/:idappuser',
+  //   loadChildren: () => import('../informationpolicier/informationpolicier.module').then( m => m.InformationpolicierPageModule)
+  // },
 ];
 
 @NgModule({

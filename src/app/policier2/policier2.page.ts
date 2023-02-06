@@ -3,6 +3,7 @@ import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { StorageService } from '../services/stockage.service';
 // import { BarcodeScannerr } from '@capacitor-community/barcode-scanner';
 // import { Component } from '@angular/core';
 // import { Camera } from '@capacitor/camera';
@@ -20,6 +21,8 @@ export class Policier2Page implements OnInit {
   message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
   name!: string;
   code: any;
+  iduser: any;
+  profv: any;
 
   cancel() {
     this.modal.dismiss(null, 'cancel');
@@ -35,7 +38,7 @@ export class Policier2Page implements OnInit {
       this.message = `Hello, ${ev.detail.data}!`;
     }
   }
-  constructor(private qrScanner: QRScanner, private barcodeScanner: BarcodeScanner) {
+  constructor(private storageService: StorageService, private qrScanner: QRScanner, private barcodeScanner: BarcodeScanner) {
     // this.scancode();
    }
 
@@ -90,6 +93,13 @@ scan(){
   ngOnInit() {
     // this.scancode();
     // .show
+
+    if (this.storageService.isLoggedIn()) {
+      this.iduser = this.storageService.getUser().idappuser;
+      this.profv=this.storageService.getUser().profile;
+    }
+    console.log("user est "+this.iduser )
+    console.log("profile est "+this.profv )
   }
 
 }

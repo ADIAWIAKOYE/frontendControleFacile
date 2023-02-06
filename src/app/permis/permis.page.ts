@@ -24,6 +24,8 @@ export class PermisPage implements OnInit {
   permiprofile: any;
   profil: any;
   profv: any;
+  routere: any;
+  roles: any;
 
 
   constructor(private permis: PermisService, private storageService: StorageService,) { }
@@ -35,10 +37,19 @@ export class PermisPage implements OnInit {
   ngOnInit() {
 
     if (this.storageService.isLoggedIn()) {
+       this.roles = this.storageService.getUser().roles;
       this.iduser = this.storageService.getUser().idappuser;
       this.profv=this.storageService.getUser().profile;
 
       this.profil=this.iduser.profile;
+
+      if (this.roles == 'ROLE_USER'){
+        this.routere = 'information'
+        // this.suivant =  false;
+      }else{
+        this.routere = '/informationpolicier'
+        // this.suivant = true;
+      }
     }
     console.log("permis est "+this.iduser )
 

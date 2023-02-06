@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../services/stockage.service';
 
 @Component({
   selector: 'app-policier',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 // export class PolicierPage implements OnInit {
   export class PolicierPage {
 
-  constructor() { }
+  constructor(private storageService: StorageService) { }
 
   // ngOnInit() {
   // }

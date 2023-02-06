@@ -1,20 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DetailinfractionPage } from './detailinfraction.page';
+import { PermispPage } from './permisp.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: DetailinfractionPage
+    component: PermispPage
   },
+
   {
     path: 'information/:idappuser',
     loadChildren: () => import('../information/information.module').then( m => m.InformationPageModule)
-  },
-  {
-    path: 'informationpolicier/:idappuser',
-    loadChildren: () => import('../informationpolicier/informationpolicier.module').then( m => m.InformationpolicierPageModule)
   },
 ];
 
@@ -22,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DetailinfractionPageRoutingModule {}
+export class PermispPageRoutingModule {}
