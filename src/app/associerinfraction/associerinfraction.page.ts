@@ -20,7 +20,7 @@ export class AssocierinfractionPage implements OnInit {
   lieu: any;
   description: any;
   permis: any;
-  amende: any;
+  montant: any;
   montantpaye: any;
   amendeee: any;
   amendes: any;
@@ -29,7 +29,7 @@ export class AssocierinfractionPage implements OnInit {
   numpermis: any;
   ainfraction: any;
   sanspermis: any;
-  message: any;
+  Message: any;
   montantt: any;
   constructor(private route: ActivatedRoute,private storageService: StorageService, private serviceinfraction : InfractionService, private associerinfraction : AssocierinfractionService) { }
 
@@ -70,7 +70,7 @@ export class AssocierinfractionPage implements OnInit {
     console.log("le lieu:", this.lieu);
     console.log("la description:", this.description);
     console.log("le numero de permis:", this.permis);
-    console.log("l' amende a payer:", this.amende);
+    console.log("l' amende a payer:", this.montant);
    console.log("le montant payer:", this.montantpaye);
     // console.log("phone:", this.phone);
     // console.log("permis:", this.permis);
@@ -79,11 +79,11 @@ export class AssocierinfractionPage implements OnInit {
     }
 
     associerinfracion(){
-       this.associerinfraction.PostInfarction(this.lieu, this.description,  this.montantt, this.iduser, this.numpermis, this.amendes, this.id).subscribe(data=>{
+       this.associerinfraction.PostInfarction(this.lieu, this.description,  this.montantt, this.iduser, this.numpermis, this.montant, this.id).subscribe(data=>{
             this.ainfraction = data;
-            this.message = data.message
+            this.Message = this.ainfraction.message
 
-            console.log("le message de retoure est:", this.message);
+            console.log("le message de retoure est:", this.Message);
        })
     }
 
@@ -93,8 +93,12 @@ export class AssocierinfractionPage implements OnInit {
     console.log("l' amende a payer:", this.amendes);
     }
       associerinfractionSanspermis(){
-        this.associerinfraction.PostInfarctionsanpermis(this.lieus, this.description, this.iduser, this.amendes, this.id).subscribe(data=>{
+        this.associerinfraction.PostInfarctionsanpermis(this.lieus, this.descriptions, this.iduser, this.amendes, this.id).subscribe(data=>{
           this.sanspermis = data;
+
+          this.Message = this.sanspermis.message
+
+          console.log("le message de retoure est:", this.Message);
         })
       }
 }

@@ -54,10 +54,10 @@
       
      
         <ion-label>Description</ion-label> 
-        <ion-textarea rows="6" cols="20" placeholder="Entez une description de l'infraction ......" [(ngModel)]="description"  name="description"></ion-textarea>
+        <ion-textarea type="text" rows="6" cols="20" placeholder="Entez une description de l'infraction ......" name="description" [(ngModel)]="description"  ></ion-textarea>
 
         <ion-label>Amende</ion-label>
-        <select class="form-select" aria-label="Default select example" name="amendes"  [(ngModel)]="amendes" >
+        <select class="form-select" aria-label="Default select example" name="amendes"  [(ngModel)]="montant" >
           <option selected>Selectionner un amende</option>
           <option *ngFor="let amendes of amendeee" value="{{amendes.montant}}">{{amendes.montant}} FCFA</option>
           <!-- <option value="2">Two</option>
@@ -84,7 +84,7 @@
         <ion-input type="text" name="lieus" placeholder="Entez le lieu de l'infraction" [(ngModel)]="lieus" ></ion-input>
 
           <ion-label>Description</ion-label> 
-          <ion-textarea rows="6" cols="20" placeholder="Entez une description de l'infraction ......" [(ngModel)]="descriptions"  name="descriptions"></ion-textarea>
+          <ion-textarea type="text" rows="6" cols="20" placeholder="Entez une description de l'infraction ......" name="descriptions" [(ngModel)]="descriptions"  ></ion-textarea>
 
           <ion-label>Amende</ion-label>
           <!-- <ion-input type="text" name="commune" ></ion-input> -->

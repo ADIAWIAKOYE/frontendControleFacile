@@ -24,13 +24,13 @@ export class AssocierinfractionService {
     return this.http.post<any>(  AUTH_API + `infraction/saveinfractionavecpermis/${idappuser}/${numpermis}/${montant}/${idvehicule}`, data)
   }
 
-  PostInfarctionsanpermis(lieu: string, description : string, idappuser : number, montant : number, idvehicule : number):Observable<any>
+  PostInfarctionsanpermis(lieu: string, descriptions : string, idappuser : number, montant : number, idvehicule : number):Observable<any>
   {
     let data =new FormData();
     data.append("lieu", lieu);
-    data.append("description", description);
+    data.append("descriptions", descriptions);
 
-    console.log("la description est:------------------",description);
+    console.log("la description est:------------------",descriptions);
     return this.http.post<any>(  AUTH_API + `infraction/saveinfractionsanspermis/${idappuser}/${montant}/${idvehicule}`, data)
   }
 }

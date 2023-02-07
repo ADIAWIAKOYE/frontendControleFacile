@@ -45,7 +45,9 @@ export class DetailinfractionPage implements OnInit {
 
   async presentModal() {
     const modal = await this.modalController.create({
-      component: ModalPage
+      component: ModalPage,
+      breakpoints: [0.5],
+      initialBreakpoint: 0.5
     });
     return await modal.present();
   }

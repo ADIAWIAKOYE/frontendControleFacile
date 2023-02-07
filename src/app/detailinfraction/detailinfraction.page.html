@@ -59,7 +59,7 @@
               &nbsp;
               
             <div class="button" *ngIf="suivant && infractions.status == false" >
-               <button  (click)="presentModal()"  class="hire" >Regler infraction</button>
+               <button (click)="presentModal()"  class="hire" >Regler infraction</button>
             </div>
              </div>
            
@@ -86,7 +86,30 @@
 
 
 
+  <ion-modal id="example-modal" #modal trigger="open-modal">
+    <ng-template>
+      <div class="wrapper">
+        <div class="warp">
+          <h1>Régler une infraction</h1>
+        </div>
+        <form action="">
+        <ion-list lines="none">
 
+          <ion-label>N° permis</ion-label>
+          <ion-input type="text" name="nom" ></ion-input>
+          
+          <ion-label>montant payer</ion-label>
+          <ion-input type="text" name="nom" ></ion-input>
+
+          <div class="buton">
+            <button type="submit" class="hirer">Envoyer</button>
+          </div>
+
+        </ion-list>
+      </form>
+      </div>
+    </ng-template>
+  </ion-modal>
   
 
 </ion-content>

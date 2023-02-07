@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { OverlayEventDetail } from '@ionic/core/components';
-import { AlertController, IonModal } from '@ionic/angular';
+import { AlertController, IonModal, ModalController } from '@ionic/angular';
 import { InscriptionService } from '../services/inscription.service';
+import { TestComponent } from '../test/test.component';
 
 @Component({
   selector: 'app-inscription',
@@ -36,7 +37,7 @@ export class InscriptionPage implements OnInit {
        this.inputs.pop()
   }
 
-  constructor(private alertController: AlertController, private inscriptionservice: InscriptionService) { }
+  constructor(private modalController: ModalController, private alertController: AlertController, private inscriptionservice: InscriptionService) { }
 
   step = 1;
   nom!: string;
@@ -62,6 +63,15 @@ export class InscriptionPage implements OnInit {
   this.permis = '';
   this.inpute = '';
 
+}
+
+async presentModal() {
+  const modal = await this.modalController.create({
+    component: TestComponent,
+    breakpoints: [0.30],
+    initialBreakpoint: 0.30
+  });
+  return await modal.present();
 }
 
   ngOnInit() {

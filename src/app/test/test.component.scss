@@ -1,0 +1,59 @@
+.containt{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+   
+}
+.containt p{
+
+   margin-left: auto;
+   margin-right: auto;
+   padding: 10%;
+   font-size: 15px;
+   font-weight: 500;
+   color: #FFFFFF;
+}
+ .wrapper .contenue{
+     background-color:  #2A445D;;
+    height: 100px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+  }
+  .warp{
+    text-align: center;
+  }
+  .warp h1{
+    font-weight: 500;
+    font-size: 28px;
+
+  }
+
+  
+   h1 {
+    margin: 20px 20px 10px 20px;
+    color: #000;
+  }
+  
+  
+   .wrapper {
+    margin-bottom: 10px;
+  }
+  
+  .buton{
+    text-align: center;
+    margin-top: 5%;
+  }
+  .hirer{
+    font-size: 17px;
+    font-weight: 500;
+    padding: 10px 37px;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    white-space: nowrap;
+    border: none;
+    background-color: #2A445D;
+    transition: all 0.3s ease;
+  }
