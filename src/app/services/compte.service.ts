@@ -49,12 +49,12 @@ export class CompteService {
 
   ///////////////////////////////Comptpolicier///////////////////////////////////////////////
 
-  modifierPolicier(idappuser: any, nom : string, prenom : string, domicile : string, telephone : string, email : string, grade : string):Observable<any>
+  modifierPolicier(idappuser: any, nom : string, prenom : string, adresse : string, telephone : string, email : string, grade : string):Observable<any>
   {
     let data =new FormData();
     data.append("nom", nom);
     data.append("prenom", prenom);
-    data.append("domicile", domicile);
+    data.append("adresse", adresse);
     data.append("telephone", telephone);
     data.append("email", email);
     data.append("grade", grade);

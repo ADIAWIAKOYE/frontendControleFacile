@@ -11,11 +11,15 @@
     </div>
 
     <!-- <div class="icond col-md-3"> -->
-      <div class="cercler">
-        <div class="icon">
-         <a routerLink = '/informationpolicier'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
-        </div>
-      </div>
+     
+      <!-- <div class="cercler"> -->
+        <!-- <div class="icon"> -->
+         <!-- <a routerLink = '/informationpolicier'> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a> -->
+         <ion-avatar routerLink = '/informationpolicier'>
+          <img class="imag" src="/assets/icon/OO.png" alt=""/>
+        </ion-avatar>
+        <!-- </div> -->
+      <!-- </div> -->
     </div>
 
      <div class="retu">
@@ -54,7 +58,7 @@
                 <ion-input type="Email"  name="email" [(ngModel)]="email"  required [(ngModel)]="emailu"></ion-input>
 
                 <ion-label>Domicile</ion-label> 
-                <ion-input type="text" name="domicile" [(ngModel)]="domicile"   required [(ngModel)]="domicileu"></ion-input>
+                <ion-input type="text" name="domicile" [(ngModel)]="adresse"   required [(ngModel)]="domicileu"></ion-input>
 
                 <ion-label>Téléphone</ion-label> 
                 <ion-input type="tel" name="telephone" [(ngModel)]="telephone"  required [(ngModel)]="telephoneu"></ion-input>

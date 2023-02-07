@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { InformationService } from '../services/information.service';
 import { StorageService } from '../services/stockage.service';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
 import { InfractionService } from '../services/infraction.service';
 import { VehiculeService } from '../services/vehicule.service';
+import { Style } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-detailinfraction',
@@ -31,7 +32,7 @@ export class DetailinfractionPage implements OnInit {
   idvec: any;
   routere: any;
 
-  constructor(private route: ActivatedRoute,  private vehiculeservice: VehiculeService, private storageService: StorageService, private modalController: ModalController, private infractionservice : InfractionService ) { }
+  constructor(private route: ActivatedRoute,  private vehiculeservice: VehiculeService, private storageService: StorageService, private modalController: ModalController, private infractionservice : InfractionService, private alertController: AlertController ) { }
 
 
   
@@ -117,14 +118,51 @@ export class DetailinfractionPage implements OnInit {
           console.log("le lieu de l'infraction est "+infractions.lieu)
           console.log("les status sont  est "+infractions.status)
           //this.idve = infractions.idvehicule;
-          if (infractions.status = true){
-            this.statuss =  false;
-          }else  if (infractions.status = false){
-            this.statuss = true;
-          }
+          // if (infractions.status = false){
+          //   this.statuss =  true;
+          // }else  {
+          //   this.statuss = false;
+          // }
           console.log("id vehicule est "+ infractions.idvehicule)
         }
       });
   }
+
+
+
+
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      
+      header: 'Please enter your info',
+      buttons: ['OK'],
+      inputs: [
+        {
+          placeholder: 'Name',
+        },
+        {
+          placeholder: 'Nickname (max 8 characters)',
+          attributes: {
+            maxlength: 8,
+          },
+        },
+        {
+          type: 'number',
+          placeholder: 'Age',
+          min: 1,
+          max: 100,
+        },
+        {
+          type: 'textarea',
+          placeholder: 'A little about yourself',
+        },
+     ],
+    });
+
+    await alert.present();
+  }
+
+
 
 }

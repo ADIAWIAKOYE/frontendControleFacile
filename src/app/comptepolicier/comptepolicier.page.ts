@@ -24,14 +24,15 @@ export class ComptepolicierPage implements OnInit {
   telephoneu: any;
   policiermodifier: any;
   message: any;
-  nom!: string;
-  email!: string;
-  prenom!: string;
-  domicile!: string;
-  telephone!: string;
-  grade!: string;
+  nom : string = '';
+  email : string = '';
+  prenom : string = '';
+  adresse : string = '';
+  telephone : string = '';
+  grade : string = '';
 
   constructor(private storageService: StorageService, private route: ActivatedRoute, private policierservice : InformationpolicierService,  private compteservice: CompteService) { }
+
 
   back(): void {
     window.history.back()
@@ -76,15 +77,16 @@ export class ComptepolicierPage implements OnInit {
   }
 
   updatepolicier(){
-    this.compteservice.modifierPolicier(this.iduser, this.nom, this.prenom, this.domicile, this.telephone, this.email, this.grade).subscribe(data=>{
+    this.compteservice.modifierPolicier(this.iduser, this.nom, this.prenom, this.adresse, this.telephone, this.email, this.grade).subscribe(data=>{
         // this.policiermodifier=data;
 
         this.message = data.message
         console.log("azertyusdfghjxcvbnfghj",this.message)
 
-        console.log("la grade est:------------------",this.grade);
+        console.log("la grade est:------------------",this.grade);       
     }) 
-    // location.reload();  
+   
+     location.reload();  
   }
 
   submit1() {

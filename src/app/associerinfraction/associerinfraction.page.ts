@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AssocierinfractionService } from '../services/associerinfraction.service';
 import { InformationService } from '../services/information.service';
 import { InfractionService } from '../services/infraction.service';
 import { StorageService } from '../services/stockage.service';
@@ -25,7 +26,12 @@ export class AssocierinfractionPage implements OnInit {
   amendes: any;
   descriptions: any;
   lieus: any;
-  constructor(private route: ActivatedRoute,private storageService: StorageService, private serviceinfraction : InfractionService) { }
+  numpermis: any;
+  ainfraction: any;
+  sanspermis: any;
+  message: any;
+  montantt: any;
+  constructor(private route: ActivatedRoute,private storageService: StorageService, private serviceinfraction : InfractionService, private associerinfraction : AssocierinfractionService) { }
 
   back(): void {
     window.history.back()
@@ -72,10 +78,23 @@ export class AssocierinfractionPage implements OnInit {
     // console.log("cartegrise:", this.inputs);
     }
 
+    associerinfracion(){
+       this.associerinfraction.PostInfarction(this.lieu, this.description,  this.montantt, this.iduser, this.numpermis, this.amendes, this.id).subscribe(data=>{
+            this.ainfraction = data;
+            this.message = data.message
+
+            console.log("le message de retoure est:", this.message);
+       })
+    }
+
     submit2(){
     console.log("le lieu:", this.lieus);
     console.log("la description:", this.descriptions);
     console.log("l' amende a payer:", this.amendes);
     }
-
+      associerinfractionSanspermis(){
+        this.associerinfraction.PostInfarctionsanpermis(this.lieus, this.description, this.iduser, this.amendes, this.id).subscribe(data=>{
+          this.sanspermis = data;
+        })
+      }
 }

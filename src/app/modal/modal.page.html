@@ -5,18 +5,46 @@
 </ion-header> -->
 
 
-  <ion-content padding no-bounce>
-    <ion-icon (click)=" back()" name="chevron-back"></ion-icon>
+<!-- <ion-content padding no-bounce> -->
+<ion-content>
+<!-- <ion-icon (click)=" back()" name="chevron-back"></ion-icon>
     <div class="titleText">How would you like to rate me?</div>
-    <!-- <ionic3-star-rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#488aff" defaultColor="black"
+     <ionic3-star-rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#488aff" defaultColor="black"
       readonly="false" [rating]="rating">
-    </ionic3-star-rating> -->
+    </ionic3-star-rating> 
     <div class="justified">
       <textarea rows="4" cols="50"  placeholder="How can I assist you further?"></textarea>
     </div>
   
     <button  class="submitButton">
       Submit
-    </button>
-  </ion-content>
+    </button> -->
 
+<!-- <ion-modal id="example-modal" #modal trigger="open-custom-dialog"> -->
+<!-- <ng-template> -->
+<div class="" style="background-color: red;">
+  <div class="wrapper">
+    <div class="warp">
+      <h1>Régler une infraction</h1>
+    </div>
+    <form action="">
+      <ion-list lines="none">
+
+        <ion-label>N° permis</ion-label>
+        <ion-input type="text" name="nom"></ion-input>
+
+        <ion-label>montant payer</ion-label>
+        <ion-input type="text" name="nom"></ion-input>
+
+        <div class="buton">
+          <button type="submit" class="hirer">Envoyer</button>
+        </div>
+
+      </ion-list>
+    </form>
+  </div>
+</div>
+
+<!-- </ng-template> -->
+<!-- </ion-modal> -->
+</ion-content>

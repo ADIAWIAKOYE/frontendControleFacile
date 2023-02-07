@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
-import { AlertController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { OverlayEventDetail } from '@ionic/core/components';
+import { AlertController, IonModal } from '@ionic/angular';
 import { InscriptionService } from '../services/inscription.service';
 
 @Component({
@@ -11,7 +11,8 @@ import { InscriptionService } from '../services/inscription.service';
 
 
 export class InscriptionPage implements OnInit {
-  
+  @ViewChild(IonModal) modal!: IonModal;
+
   suivant : boolean = true;
 
   inputs = [{ value: '' }];
@@ -23,6 +24,7 @@ export class InscriptionPage implements OnInit {
  
   
   message: any;
+  name: any;
 
   addInput() {
 
@@ -155,4 +157,18 @@ export class InscriptionPage implements OnInit {
     }
 
 
+    cancel() {
+      this.modal.dismiss(null, 'cancel');
+    }
+  
+    confirm() {
+      this.modal.dismiss(this.name, 'confirm');
+    }
+  
+    onWillDismiss(event: Event) {
+      const ev = event as CustomEvent<OverlayEventDetail<string>>;
+      if (ev.detail.role === 'confirm') {
+        this.message = `Hello, ${ev.detail.data}!`;
+      }
+    }
 }

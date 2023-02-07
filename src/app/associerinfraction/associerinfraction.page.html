@@ -47,7 +47,7 @@
 
 
     <div [ngSwitch]="cat">
-      <form *ngSwitchCase="'men'" (ngSubmit)="submit1()">
+      <form *ngSwitchCase="'men'" (ngSubmit)="associerinfracion()">
       <ion-list >
         <ion-label>Lieu</ion-label> 
         <ion-input type="text" name="lieu" placeholder="Entez le lieu de l'infraction" [(ngModel)]="lieu" ></ion-input>
@@ -57,7 +57,7 @@
         <ion-textarea rows="6" cols="20" placeholder="Entez une description de l'infraction ......" [(ngModel)]="description"  name="description"></ion-textarea>
 
         <ion-label>Amende</ion-label>
-        <select class="form-select" aria-label="Default select example" name="amende"  [(ngModel)]="amende" >
+        <select class="form-select" aria-label="Default select example" name="amendes"  [(ngModel)]="amendes" >
           <option selected>Selectionner un amende</option>
           <option *ngFor="let amendes of amendeee" value="{{amendes.montant}}">{{amendes.montant}} FCFA</option>
           <!-- <option value="2">Two</option>
@@ -65,10 +65,10 @@
         </select>
 
           <ion-label>N° permis</ion-label>
-          <ion-input type="text" name="permis" placeholder="Entez le n°premis du conducteur"  [(ngModel)]="permis"></ion-input>
+          <ion-input type="text" name="numpermis" placeholder="Entez le n°premis du conducteur"  [(ngModel)]="numpermis"></ion-input>
 
           <ion-label>montant payer</ion-label>
-          <ion-input type="text" name="montantpaye" placeholder="Entez le montant payer par le conducteur"  [(ngModel)]="montantpaye"></ion-input>
+          <ion-input type="text" name="montantt" placeholder="Entez le montant payer par le conducteur"  [(ngModel)]="montantt"></ion-input>
       </ion-list>
       <div class="buton">
         <!-- <a href="#about" class="btn">Deconnecter</a>
@@ -78,7 +78,7 @@
   </div>
 
     </form>
-    <form *ngSwitchCase="'women'" (ngSubmit)="submit2()">
+    <form *ngSwitchCase="'women'" (ngSubmit)="associerinfractionSanspermis()">
       <ion-list >
         <ion-label>Lieu</ion-label> 
         <ion-input type="text" name="lieus" placeholder="Entez le lieu de l'infraction" [(ngModel)]="lieus" ></ion-input>

@@ -58,8 +58,8 @@
               </div>
               &nbsp;
               
-            <div class="button" *ngIf="suivant && statuss" >
-               <button  routerLink=""   class="hire" id="open-modal" expand="block">Regler infraction</button>
+            <div class="button" *ngIf="suivant && infractions.status == false" >
+               <button  (click)="presentModal()"  class="hire" >Regler infraction</button>
             </div>
              </div>
            
@@ -75,42 +75,16 @@
      </div>
 
 
-     <!-- <div class="item-padd">
-      <div class="item-inner ">
-          <div class="iimg">
-            <ion-icon name="alert-circle"></ion-icon>
-            <ion-label>Infraction</ion-label>
-            <ion-label>01/ 10 / 2023 T 10 H 10 : 00</ion-label>
-          </div>
-          <div class="conten">
-            <p>Description</p>
-            <ion-item>vous avez bruler le feu rouge sans fuite
-              sur la rue 250 de badalabougou  </ion-item>
-          </div>
-          <div class="lb">
-            
-          <div class="label">
-            <ion-label> <span  id="span">Amende </span> :  <span id="sp" >10000 FCFA</span></ion-label>
-          </div>
-          <div class="label">
-            <ion-label> <span  id="span">infraction réglé  </span> =   <span id="sp">OUI</span></ion-label>
-          </div>
-          <div class="label">
-            <ion-label> <span  id="span">Montant payé </span> =   <span id="sp"> 10000 FCFA</span></ion-label>
-          </div>
-          <div class="label">
-            <ion-label> <span id="span">infraction réglé lé </span>  = <span id="sp"> 15 / 10 / 2022</span></ion-label>
-          </div>
-        </div>
-
-      </div>
-   </div> -->
-
 
     </div>
      
 
   </div>
+
+
+
+
+
 
 
   
