@@ -67,7 +67,7 @@ const routes: Routes = [
     loadChildren: () => import('./associerinfraction/associerinfraction.module').then( m => m.AssocierinfractionPageModule)
   },
   {
-    path: 'modal',
+    path: 'modal/:idinfraction',
     loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
   },
   {

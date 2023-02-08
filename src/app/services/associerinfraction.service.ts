@@ -33,4 +33,14 @@ export class AssocierinfractionService {
     console.log("la description est:------------------",descriptions);
     return this.http.post<any>(  AUTH_API + `infraction/saveinfractionsanspermis/${idappuser}/${montant}/${idvehicule}`, data)
   }
+
+  //////////////////////////////// REGLER UNE INFRACTION /////////////////////////////////////////////
+
+  PostInfractionRegle(montant : number, idinfraction : number, numpermis : string ):Observable<any>{
+     
+    let data = {
+      "montant": montant
+      }
+    return this.http.post<any>( AUTH_API + `amenderegle/ajouterAmenderegle/${idinfraction}/${numpermis}`, data )
+  }
 }

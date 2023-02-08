@@ -41,13 +41,14 @@ export class DetailinfractionPage implements OnInit {
   back(): void {
     window.history.back()
   }
-
+  idinfraction: any
 
   async presentModal() {
     const modal = await this.modalController.create({
       component: ModalPage,
       breakpoints: [0.5],
       initialBreakpoint: 0.5
+      
     });
     return await modal.present();
   }
