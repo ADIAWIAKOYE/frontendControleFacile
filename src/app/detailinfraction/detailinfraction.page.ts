@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { InformationService } from '../services/information.service';
 import { StorageService } from '../services/stockage.service';
 import { AlertController, ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
 import { InfractionService } from '../services/infraction.service';
 import { VehiculeService } from '../services/vehicule.service';
-import { Style } from '@capacitor/status-bar';
+import Swal from 'sweetalert2'
+import { InformationService } from '../services/information.service';
 
 @Component({
   selector: 'app-detailinfraction',
@@ -31,8 +31,10 @@ export class DetailinfractionPage implements OnInit {
   plaq: any;
   idvec: any;
   routere: any;
+  user: any;
+  profilu: any;
 
-  constructor(private route: ActivatedRoute,  private vehiculeservice: VehiculeService, private storageService: StorageService, private modalController: ModalController, private infractionservice : InfractionService, private alertController: AlertController ) { }
+  constructor(private route: ActivatedRoute,  private vehiculeservice: VehiculeService, private storageService: StorageService, private modalController: ModalController, private infractionservice : InfractionService, private alertController: AlertController, private informationservice : InformationService ) { }
 
 
   
@@ -43,9 +45,12 @@ export class DetailinfractionPage implements OnInit {
   }
   idinfraction: any
 
-  async presentModal() {
+  async presentModal(idinfraction: number) {
     const modal = await this.modalController.create({
       component: ModalPage,
+      componentProps: {
+        'data': idinfraction, 
+      },
       breakpoints: [0.5],
       initialBreakpoint: 0.5
       
@@ -61,6 +66,18 @@ export class DetailinfractionPage implements OnInit {
     this.statuss = false;
     }
 
+    onclick()
+    {
+      // Swal.fire('Any fool can use a computer')
+
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
 
   ngOnInit() {
 
@@ -129,6 +146,8 @@ export class DetailinfractionPage implements OnInit {
           console.log("id vehicule est "+ infractions.idvehicule)
         }
       });
+
+      this.afficheruser();
   }
 
 
@@ -168,4 +187,21 @@ export class DetailinfractionPage implements OnInit {
 
 
 
+  afficheruser(){
+    this.informationservice.getuser(this.iduser).subscribe(data=>{
+      this.user=data;
+      // this.nomu=this.utilisateur.nom;
+      // this.prenomu=this.utilisateur.prenom;
+      // this.domicileu=this.utilisateur.domicile;
+      // this.datenaissanceu=this.utilisateur.datenaissance;
+      // this.lieunaissanceu=this.utilisateur.lieunaissance;
+      // this.professionu=this.utilisateur.profession;
+      // this.communeu=this.utilisateur.commune;
+      // this.telephoneu=this.utilisateur.telephone;
+      this.profilu=this.user.profile;  
+      // console.log("la nom est "+this.nomu)
+      // console.log("la prenom est "+this.prenomu)
+      // console.log("la domicile est "+this.domicileu)
+    });
+  }
 }

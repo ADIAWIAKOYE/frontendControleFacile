@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: () => import('./connexion/connexion.module').then( m => m.ConnexionPageModule)
   },
   {
-    path: 'information',
+    path: 'information/:idappuser',
     loadChildren: () => import('./information/information.module').then( m => m.InformationPageModule)
   },
   {
@@ -39,7 +39,7 @@ const routes: Routes = [
     loadChildren: () => import('./detailvehicule/detailvehicule.module').then( m => m.DetailvehiculePageModule)
   },
   {
-    path: 'modifiervehicule',
+    path: 'modifiervehicule/:idvehicule',
     loadChildren: () => import('./modifiervehicule/modifiervehicule.module').then( m => m.ModifiervehiculePageModule)
   },
   {

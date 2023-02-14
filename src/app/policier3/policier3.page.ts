@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InformationpolicierService } from '../services/informationpolicier.service';
 import { StorageService } from '../services/stockage.service';
 import { VehiculeService } from '../services/vehicule.service';
 
@@ -20,8 +21,17 @@ export class Policier3Page implements OnInit {
   idv: any;
   iduser: any;
   profv: any;
+  policier: any;
+  nomu: any;
+  prenomu: any;
+  domicileu: any;
+  emailu: any;
+  gradeu: any;
+  matriculeu: any;
+  telephoneu: any;
+  profilu: any;
 
-  constructor(private storageService: StorageService, private  vehiculeservice : VehiculeService) { }
+  constructor(private storageService: StorageService, private  vehiculeservice : VehiculeService, private policierservice : InformationpolicierService) { }
 
   filterTerm!: string;
   ngOnInit() {
@@ -55,6 +65,24 @@ export class Policier3Page implements OnInit {
        });
      }
 
+    });
+    this.afficherpolicier();
+  }
+
+  afficherpolicier(){
+    this.policierservice.getpoliciser(this.iduser).subscribe(data=>{
+      this.policier=data;
+      this.nomu=this.policier.nom;
+      this.prenomu=this.policier.prenom;
+      this.domicileu=this.policier.domicile;
+      this.emailu=this.policier.email;
+      this.gradeu=this.policier.grade;
+      this.matriculeu=this.policier.matricule;
+      this.telephoneu=this.policier.telephone; 
+      this.profilu=this.policier.profile; 
+      console.log("la nom est "+this.nomu)
+      console.log("la prenom est "+this.prenomu)
+      console.log("la domicile est "+this.domicileu)
     });
   }
 

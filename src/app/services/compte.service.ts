@@ -49,6 +49,22 @@ export class CompteService {
 
   ///////////////////////////////Comptpolicier///////////////////////////////////////////////
 
+
+
+  modifierprofilepolicier(idappuser: any, file : File):Observable<any>
+  {
+    let data =new FormData();
+    data.append("file",file);
+
+    console.log("id du policier  est "+idappuser)
+
+    console.log("le file  est ",file)
+
+    return this.http.put<any>( AUTH_API + `policier/UpdatePolicier/${idappuser}`, data)
+  }
+
+
+
   modifierPolicier(idappuser: any, nom : string, prenom : string, adresse : string, telephone : string, email : string, grade : string):Observable<any>
   {
     let data =new FormData();

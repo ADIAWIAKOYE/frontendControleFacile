@@ -4,6 +4,7 @@ import { AssocierinfractionService } from '../services/associerinfraction.servic
 import { InformationService } from '../services/information.service';
 import { InfractionService } from '../services/infraction.service';
 import { StorageService } from '../services/stockage.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-associerinfraction',
@@ -31,11 +32,40 @@ export class AssocierinfractionPage implements OnInit {
   sanspermis: any;
   Message: any;
   montantt: any;
-  constructor(private route: ActivatedRoute,private storageService: StorageService, private serviceinfraction : InfractionService, private associerinfraction : AssocierinfractionService) { }
+  stat: any;
+  Messages: any;
+  statt: any;
+  user: any;
+  profilu: any;
+  constructor(private route: ActivatedRoute,private storageService: StorageService, private serviceinfraction : InfractionService, private associerinfraction : AssocierinfractionService, private informationservice : InformationService) { }
 
   back(): void {
     window.history.back()
   }
+
+  resetFormassocierinfracion(){
+
+    this.lieu= ''
+ 
+    this.description = ''
+ 
+    this.montantt = ''
+
+    this.numpermis= ''
+ 
+    this.montant = ''
+ 
+ }
+
+ resetFormassocierinfractionSanspermis(){
+
+  this.lieus = ''
+
+  this.descriptions = ''
+
+  this.amendes = ''
+
+}
 
   ngOnInit() {
 
@@ -63,6 +93,7 @@ export class AssocierinfractionPage implements OnInit {
       }
     });
     
+    this.afficheruser();
   }
 
   submit1() {
@@ -81,10 +112,41 @@ export class AssocierinfractionPage implements OnInit {
     associerinfracion(){
        this.associerinfraction.PostInfarction(this.lieu, this.description,  this.montantt, this.iduser, this.numpermis, this.montant, this.id).subscribe(data=>{
             this.ainfraction = data;
-            this.Message = this.ainfraction.message
 
+            this.Message = this.ainfraction.message
+            this.stat = this.ainfraction.status
             console.log("le message de retoure est:", this.Message);
+            console.log("le message de retoure est:", this.stat);
+
+            setTimeout (()=>{
+
+              if(this.stat == true){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    heightAuto:false,
+                    title: this.Message,
+                    showConfirmButton: false,
+                     timer: 1500.
+                  
+                  })
+             }else{
+              Swal.fire({
+                position: 'center',
+                icon: 'error',
+                heightAuto:false,
+                title: this.Message,
+                showConfirmButton: false,
+                 timer: 1500.
+              
+              })
+             }
+
+            },10)
+
        })
+       
+       this.resetFormassocierinfracion()     
     }
 
     submit2(){
@@ -96,9 +158,58 @@ export class AssocierinfractionPage implements OnInit {
         this.associerinfraction.PostInfarctionsanpermis(this.lieus, this.descriptions, this.iduser, this.amendes, this.id).subscribe(data=>{
           this.sanspermis = data;
 
-          this.Message = this.sanspermis.message
+          this.Messages = this.sanspermis.message;
+          this.statt = this.sanspermis.status;
+          console.log("le message de retoure est:", this.Messages);
+          console.log("le message de retoure est:", this.statt);
 
-          console.log("le message de retoure est:", this.Message);
+
+          setTimeout (()=>{
+
+            if(this.statt == true){
+              Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  heightAuto:false,
+                  title: this.Messages,
+                  showConfirmButton: false,
+                   timer: 1500.
+                
+                })
+           }else{
+            Swal.fire({
+              position: 'center',
+              icon: 'error',
+              heightAuto:false,
+              title: this.Messages,
+              showConfirmButton: false,
+               timer: 1500.
+            
+            })
+           }
+
+          },10)
+
         })
+        this.resetFormassocierinfractionSanspermis();
+      }
+
+
+      afficheruser(){
+        this.informationservice.getuser(this.iduser).subscribe(data=>{
+          this.user=data;
+          // this.nomu=this.utilisateur.nom;
+          // this.prenomu=this.utilisateur.prenom;
+          // this.domicileu=this.utilisateur.domicile;
+          // this.datenaissanceu=this.utilisateur.datenaissance;
+          // this.lieunaissanceu=this.utilisateur.lieunaissance;
+          // this.professionu=this.utilisateur.profession;
+          // this.communeu=this.utilisateur.commune;
+          // this.telephoneu=this.utilisateur.telephone;
+          this.profilu=this.user.profile;  
+          // console.log("la nom est "+this.nomu)
+          // console.log("la prenom est "+this.prenomu)
+          // console.log("la domicile est "+this.domicileu)
+        });
       }
 }

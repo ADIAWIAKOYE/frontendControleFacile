@@ -11,11 +11,14 @@
     </div>
 
     <!-- <div class="icond col-md-3"> -->
-      <div class="cercler">
+      <!-- <div class="cercler">
         <div class="icon">
          <a [routerLink] = "['information', this.iduser]"> <ion-img class="imag" src="{{profv}}" alt=""></ion-img></a>
         </div>
-      </div>
+      </div> -->
+      <ion-avatar [routerLink] = "['information', this.iduser]">
+        <img class="imag" src="{{profilu}}" alt=""/>
+      </ion-avatar>
     <!-- </div> -->
     <!-- <div class="icon">
       <ion-img class="image" src="/assets/icon/logo.png" alt=""></ion-img>
@@ -91,10 +94,10 @@
         <p>Couleur : <span>{{vehicle.couleur}}</span></p>
       </div>
       <div class="buton">
-        <a  [routerLink] = "['detailvehicule', this.idve]" routerLinkActive="active" class="hire">{{vehicle.plaqueimatri}}</a>
+        <a  [routerLink] = "['detailvehicule', vehicle.idvehicule]" routerLinkActive="active" class="hire">{{vehicle.plaqueimatri}}</a>
         &nbsp;
         <!-- &nbsp; -->
-        <a [routerLink] = "['modifiervehicule', this.idve]" routerLinkActive="active" class="btn">Modifier</a>
+        <a [routerLink] = "['/modifiervehicule', vehicle.idvehicule]" routerLinkActive="active" class="btn">Modifier</a>
           </div>
       </div>
     </div>

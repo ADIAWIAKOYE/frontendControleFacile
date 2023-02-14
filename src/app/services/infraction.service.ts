@@ -18,10 +18,22 @@ export class InfractionService {
   }
 
 
+  getinfractionnbr(idappuser: any):Observable<any>
+  {
+    return this.http.get<any>(  AUTH_API + `infraction/infractionparutilisateurnbre/${idappuser}`)
+  }
+
+
 
   getalerte(idappuser: any):Observable<any>
   {
-    return this.http.get<any>(  AUTH_API + `alerte/afficheramende/${idappuser}`)
+    return this.http.get<any>(  AUTH_API + `alerte/afficheramendedate/${idappuser}`)
+  }
+
+
+  getalertenbr(idappuser: any):Observable<any>
+  {
+    return this.http.get<any>(  AUTH_API + `alerte/afficheramendenbr/${idappuser}`)
   }
 
 

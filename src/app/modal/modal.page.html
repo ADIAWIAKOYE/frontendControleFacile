@@ -27,14 +27,19 @@
     <div class="warp">
       <h1>Régler une infraction</h1>
     </div>
-    <form action="">
+    <form (ngSubmit)="regleinfraction()">
+
+      <div *ngIf="Message" class="alert alert-success" role="alert">
+        <strong>{{Message}}</strong>
+      </div>
+      
       <ion-list lines="none">
 
         <ion-label>N° permis</ion-label>
-        <ion-input type="text" name="nom"></ion-input>
+        <ion-input type="text" name="numpermis"  [(ngModel)]="numpermis"></ion-input>
 
         <ion-label>montant payer</ion-label>
-        <ion-input type="text" name="nom"></ion-input>
+        <ion-input type="text" name="montant"  [(ngModel)]="montant"  ></ion-input>
 
         <div class="buton">
           <button type="submit" class="hirer">Envoyer</button>

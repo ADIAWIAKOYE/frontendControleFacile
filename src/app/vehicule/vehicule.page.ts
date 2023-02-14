@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { InformationService } from '../services/information.service';
 import { StorageService } from '../services/stockage.service';
 import { VehiculeService } from '../services/vehicule.service';
 
@@ -25,8 +26,10 @@ export class VehiculePage implements OnInit {
   vehic: any;
   idve: any;
   profv: any;
+  user: any;
+  profilu: any;
 
-  constructor( private vehiculeservice: VehiculeService, private storageService: StorageService,) { }
+  constructor( private vehiculeservice: VehiculeService, private storageService: StorageService, private informationservice : InformationService) { }
 
   back(): void {
     window.history.back()
@@ -65,6 +68,14 @@ export class VehiculePage implements OnInit {
     }
     console.log("user est "+this.iduser )
 
+
+    this.AfficherVehicule();
+
+    this.afficheruser();
+  }
+
+
+  AfficherVehicule(){
     this.vehiculeservice.getvehicule(this.iduser).subscribe(data=>{
       this.vehicule=data;
       this.vicule= this.vehicule.idvehicule;
@@ -88,6 +99,26 @@ for(let vehicle of this.vehicule){
 }
      
      
+    });
+  }
+
+
+
+  afficheruser(){
+    this.informationservice.getuser(this.iduser).subscribe(data=>{
+      this.user=data;
+      // this.nomu=this.utilisateur.nom;
+      // this.prenomu=this.utilisateur.prenom;
+      // this.domicileu=this.utilisateur.domicile;
+      // this.datenaissanceu=this.utilisateur.datenaissance;
+      // this.lieunaissanceu=this.utilisateur.lieunaissance;
+      // this.professionu=this.utilisateur.profession;
+      // this.communeu=this.utilisateur.commune;
+      // this.telephoneu=this.utilisateur.telephone;
+      this.profilu=this.user.profile;  
+      // console.log("la nom est "+this.nomu)
+      // console.log("la prenom est "+this.prenomu)
+      // console.log("la domicile est "+this.domicileu)
     });
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartegriseService } from '../services/cartegrise.service';
+import { InformationService } from '../services/information.service';
 import { StorageService } from '../services/stockage.service';
 
 @Component({
@@ -40,7 +41,10 @@ export class CartegrisePage implements OnInit {
   profv: any;
   routere: any;
   roles: any;
-  constructor(private storageService: StorageService, private route: ActivatedRoute, private cartegriseservice: CartegriseService,) { }
+  user: any;
+  profilu: any;
+  constructor(private storageService: StorageService, private route: ActivatedRoute,
+     private cartegriseservice: CartegriseService, private informationservice : InformationService) { }
  
   back(): void {
     window.history.back()
@@ -50,6 +54,7 @@ export class CartegrisePage implements OnInit {
 
 
     if (this.storageService.isLoggedIn()) {
+      this.roles = this.storageService.getUser().roles;
       this.iduser = this.storageService.getUser().idappuser;
       this.profv=this.storageService.getUser().profile;
 
@@ -60,6 +65,7 @@ export class CartegrisePage implements OnInit {
         this.routere = '/informationpolicier'
         // this.suivant = true;
       }
+
     }
     console.log("user est "+this.iduser )
 
@@ -107,10 +113,26 @@ export class CartegrisePage implements OnInit {
     console.log("la numeropermis est ",this.numpermisi)
   });
 
-
+     this.afficheruser();
   }
 
   
-
+  afficheruser(){
+    this.informationservice.getuser(this.iduser).subscribe(data=>{
+      this.user=data;
+      // this.nomu=this.utilisateur.nom;
+      // this.prenomu=this.utilisateur.prenom;
+      // this.domicileu=this.utilisateur.domicile;
+      // this.datenaissanceu=this.utilisateur.datenaissance;
+      // this.lieunaissanceu=this.utilisateur.lieunaissance;
+      // this.professionu=this.utilisateur.profession;
+      // this.communeu=this.utilisateur.commune;
+      // this.telephoneu=this.utilisateur.telephone;
+      this.profilu=this.user.profile;  
+      // console.log("la nom est "+this.nomu)
+      // console.log("la prenom est "+this.prenomu)
+      // console.log("la domicile est "+this.domicileu)
+    });
+  }
 
 }

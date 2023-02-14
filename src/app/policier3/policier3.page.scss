@@ -31,9 +31,27 @@ bottom: 0px;
     position: fixed;
     margin: 15px;
   }
-  .imag{
-    margin: 10px;
-  }
+//   .imag{
+//     margin: 10px;
+//   }
+
+ion-avatar{
+    background-color: aliceblue;
+   //  position: absolute;
+
+    width: 55px;
+    height: 55px;
+   // border-radius: 50%;
+   // right: 0;
+    position: fixed;
+    margin-top: 15px;
+   //  float: left;
+   //  left: 100%;
+   //  right: 20px;
+   //  margin: 100%;
+   margin-left: 80%;
+ }
+
   .bien{
     margin-top: 95px; 
     text-align: center;

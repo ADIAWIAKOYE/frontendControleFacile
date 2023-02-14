@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InformationService } from '../services/information.service';
 import { PermisService } from '../services/permis.service';
 import { StorageService } from '../services/stockage.service';
 
@@ -26,9 +27,11 @@ export class PermisPage implements OnInit {
   profv: any;
   routere: any;
   roles: any;
+  user: any;
+  profilu: any;
 
 
-  constructor(private permis: PermisService, private storageService: StorageService,) { }
+  constructor(private permis: PermisService, private storageService: StorageService, private informationservice : InformationService) { }
 
   back(): void {
     window.history.back()
@@ -55,7 +58,14 @@ export class PermisPage implements OnInit {
 
     console.log("profile est "+this.profil )
 
-    this.permis.getpermis(this.iduser).subscribe(data=>{
+       this.afficheruser();
+
+       this.afficherpermis();
+  }
+
+
+  afficherpermis(){
+        this.permis.getpermis(this.iduser).subscribe(data=>{
       this.perm=data;
       this.perminom=this.perm.permis.nom;
       this.perminum=this.perm.permis.numpermis;
@@ -71,6 +81,24 @@ export class PermisPage implements OnInit {
       this.permicategorie=this.perm.permis.categoriepermis
       console.log("permis est "+this.perm.permis.nom )
       console.log("permis est "+this.perm.permis.numpermis )
+    });
+  }
+
+  afficheruser(){
+    this.informationservice.getuser(this.iduser).subscribe(data=>{
+      this.user=data;
+      // this.nomu=this.utilisateur.nom;
+      // this.prenomu=this.utilisateur.prenom;
+      // this.domicileu=this.utilisateur.domicile;
+      // this.datenaissanceu=this.utilisateur.datenaissance;
+      // this.lieunaissanceu=this.utilisateur.lieunaissance;
+      // this.professionu=this.utilisateur.profession;
+      // this.communeu=this.utilisateur.commune;
+      // this.telephoneu=this.utilisateur.telephone;
+      this.profilu=this.user.profile;  
+      // console.log("la nom est "+this.nomu)
+      // console.log("la prenom est "+this.prenomu)
+      // console.log("la domicile est "+this.domicileu)
     });
   }
 

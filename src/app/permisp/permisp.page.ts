@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { InformationService } from '../services/information.service';
 import { PermisService } from '../services/permis.service';
 import { StorageService } from '../services/stockage.service';
 
@@ -27,9 +28,11 @@ export class PermispPage implements OnInit {
   permidateecheancep: any;
   permiprofilep: any;
   permicategoriep: any;
+  user: any;
+  profilu: any;
   
 
-  constructor(private route: ActivatedRoute, private permis: PermisService, private storageService: StorageService,) { }
+  constructor(private route: ActivatedRoute, private permis: PermisService, private storageService: StorageService, private informationservice : InformationService) { }
 
   back(): void {
     window.history.back()
@@ -70,6 +73,26 @@ export class PermispPage implements OnInit {
       console.log("permis est "+this.perm.numpermis )
     });
 
+    this.afficheruser();
+  }
+
+
+  afficheruser(){
+    this.informationservice.getuser(this.iduser).subscribe(data=>{
+      this.user=data;
+      // this.nomu=this.utilisateur.nom;
+      // this.prenomu=this.utilisateur.prenom;
+      // this.domicileu=this.utilisateur.domicile;
+      // this.datenaissanceu=this.utilisateur.datenaissance;
+      // this.lieunaissanceu=this.utilisateur.lieunaissance;
+      // this.professionu=this.utilisateur.profession;
+      // this.communeu=this.utilisateur.commune;
+      // this.telephoneu=this.utilisateur.telephone;
+      this.profilu=this.user.profile;  
+      // console.log("la nom est "+this.nomu)
+      // console.log("la prenom est "+this.prenomu)
+      // console.log("la domicile est "+this.domicileu)
+    });
   }
 
 }

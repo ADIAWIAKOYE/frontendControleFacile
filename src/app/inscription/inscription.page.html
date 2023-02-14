@@ -71,16 +71,20 @@
                   &nbsp;
                   &nbsp;
                   <i class="bi bi-plus-lg" (click)="addInput()" style="color: #333333; font-size: 20px;"></i>
+                  &nbsp;
+                  &nbsp;
                   <i class="bi bi-dash-lg" (click)="removeInput()" style="color: #333333; font-size: 20px;"></i>
                 </div>
                 
             </ion-list>
             <div class="btnn">
-            <a class="btn" (click)="onSubmit()">S'inscrire</a>
+            <button class="btn" type="submit" (click)="onSubmit()">S'inscrire</button>
+            &nbsp;
+            &nbsp;
             <a class="btn" (click)="ReturnStep()" >returne</a>
           </div>
           </form>
-           <button class="btn" (click)="presentModal()" >returne</button> 
+           <!-- <button class="btn" (click)="presentModal()" >returne</button>  -->
           <div class="com">
             <p >j’ai deja un compte . <a routerLink = '/connexion'>se connecter</a> </p>
           </div>

@@ -3,6 +3,8 @@ import { OverlayEventDetail } from '@ionic/core/components';
 import { AlertController, IonModal, ModalController } from '@ionic/angular';
 import { InscriptionService } from '../services/inscription.service';
 import { TestComponent } from '../test/test.component';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inscription',
@@ -16,6 +18,8 @@ export class InscriptionPage implements OnInit {
 
   suivant : boolean = true;
 
+  popup : boolean = true
+
   inputs = [{ value: '' }];
   
 
@@ -26,6 +30,7 @@ export class InscriptionPage implements OnInit {
   
   message: any;
   name: any;
+  stat: any;
 
   addInput() {
 
@@ -37,7 +42,7 @@ export class InscriptionPage implements OnInit {
        this.inputs.pop()
   }
 
-  constructor(private modalController: ModalController, private alertController: AlertController, private inscriptionservice: InscriptionService) { }
+  constructor(private modalController: ModalController, private alertController: AlertController, private inscriptionservice: InscriptionService, private router: Router) { }
 
   step = 1;
   nom!: string;
@@ -104,7 +109,7 @@ async presentModal() {
     console.log("phone:", this.phone);
     console.log("permis:", this.permis);
 
-    console.log("cartegrise:", this.inputs);
+    console.log("cartegrise:", this.inp);
     }
 
     errorMessage = '';
@@ -137,18 +142,54 @@ async presentModal() {
         data => {
           // console.log("Téléphone:------------------"+this.phone);
           // console.log("Cartegrise:------------------"+this.inp);
-
+          
           this.message = data.message;
-      
+          this.stat = data.status
           // console.log("---------------------------------"+this.message)
           // console.log("---------------------------------"+data)
 
           // error: err => {
           //   this.errorMessage = err.error.message;
           // }
+
+
+          setTimeout (()=>{
+
+            if(this.stat == true){
+    
+              Swal.fire({
+
+                  position: 'center',
+                  icon: 'success',
+                  heightAuto:false,
+                  title: this.message,
+                  showConfirmButton: false,
+                   timer: 3000.
+                   
+                })
+    
+                this.router.navigate(['/connexion']);
+           }
+          // else{
+          //   Swal.fire({
+          //     position: 'center',
+          //     icon: 'error',
+          //     heightAuto:false,
+          //     title: 'veillez bien verrifier vos enregistrements',
+          //     showConfirmButton: false,
+          //      timer: 2000.
+            
+          //   })
+          //  }
+    
+          },10)
+
+          
         },
       );
-      this.resetForm()
+
+
+       this.resetForm()
      
     }
 

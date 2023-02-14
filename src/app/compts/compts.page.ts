@@ -53,28 +53,39 @@ export class ComptsPage implements OnInit {
     this.id = this.idappuser
     console.log("l'ID est "+this.idappuser)
 
-    this.compteservice.getutilisateur(this.iduser).subscribe(data=>{
-      this.utilisateur=data;
-      this.nomu=this.utilisateur.nom;
-      this.prenomu=this.utilisateur.prenom;
-      this.domicileu=this.utilisateur.domicile;
-      this.datenaissanceu=this.utilisateur.datenaissance;
-      this.lieunaissanceu=this.utilisateur.lieunaissance;
-      this.professionu=this.utilisateur.profession;
-      this.communeu=this.utilisateur.commune;
-      this.telephoneu=this.utilisateur.telephone;  
-      this.profilu = this.utilisateur.profile;
-      console.log("la nom est "+this.nomu)
-      console.log("la prenom est "+this.prenomu)
-      console.log("la domicile est "+this.domicileu)
-    });
+
+     this.afficherComptepolicier();
 
   }
 
+afficherComptepolicier(){
+  this.compteservice.getutilisateur(this.iduser).subscribe(data=>{
+    this.utilisateur=data;
+    this.nomu=this.utilisateur.nom;
+    this.prenomu=this.utilisateur.prenom;
+    this.domicileu=this.utilisateur.domicile;
+    this.datenaissanceu=this.utilisateur.datenaissance;
+    this.lieunaissanceu=this.utilisateur.lieunaissance;
+    this.professionu=this.utilisateur.profession;
+    this.communeu=this.utilisateur.commune;
+    this.telephoneu=this.utilisateur.telephone;  
+    this.profilu = this.utilisateur.profile;
+    console.log("la nom est "+this.nomu)
+    console.log("la prenom est "+this.prenomu)
+    console.log("la domicile est "+this.domicileu)
+  });
+}
+
+
   fileChang(event:any){
     this.file=event.target["files"][0]
-
+    this.compteservice.modifierprofile(this.iduser, this.file).subscribe(data=>{
+      this.img=data;
+      this.afficherComptepolicier();
+    })
     console.log("azertyusdfghjxcvbnfghj",this.file)
+
+ 
   }
 
 

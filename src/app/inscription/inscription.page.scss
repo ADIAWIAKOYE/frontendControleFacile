@@ -68,7 +68,7 @@ ion-item{
     border: 1px solid #2A445D;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    color: #777474;
+    color: #000;
     background: #F5F5F5;
     font-size: 11px;
   }
@@ -89,17 +89,18 @@ ion-label{
   display: flex;
   margin-top: -10%; 
   text-align: center;
+  justify-content: center;
   margin-left: 7%;
   margin-right: 7%;
 }
 .btn {
-width: 90%;
+width: 60%;
 margin-bottom: 15%;
  // background-color: #2A445D !important; /* Blue background */
  background-color:#2A445D !important ;
   border: none; /* Remove borders */
   color: #FFFFFF; /* White text */
- // padding: 10px 65px; /* Some padding */
+  padding: 10px ; /* Some padding */
   font-weight: 500;
   font-size: 13px; /* Set a font size */
   cursor: pointer; /* Mouse pointer on hover */

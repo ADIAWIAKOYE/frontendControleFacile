@@ -16,4 +16,12 @@ export class InformationService {
     return this.http.get<any>(  AUTH_API + `utilisateur/afficher/${idappuser}`)
   }
 
+
+
+
+  getuser(idappuser: any):Observable<any>
+  {
+    return this.http.get<any>(  AUTH_API + `utilisateur/afficherU/${idappuser}`)
+  }
+
 }

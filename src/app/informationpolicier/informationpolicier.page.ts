@@ -21,6 +21,7 @@ export class InformationpolicierPage implements OnInit {
   gradeu: any;
   matriculeu: any;
   telephoneu: any;
+  profilu: any;
 
   constructor( private route: ActivatedRoute, private storageService : StorageService , private policierservice : InformationpolicierService) { }
 
@@ -40,6 +41,12 @@ export class InformationpolicierPage implements OnInit {
     this.id = this.idappuser
     console.log("l'ID est "+this.idappuser)
 
+     this.afficherpolicier();
+
+  }
+
+
+  afficherpolicier(){
     this.policierservice.getpoliciser(this.idappuser).subscribe(data=>{
       this.policier=data;
       this.nomu=this.policier.nom;
@@ -48,12 +55,13 @@ export class InformationpolicierPage implements OnInit {
       this.emailu=this.policier.email;
       this.gradeu=this.policier.grade;
       this.matriculeu=this.policier.matricule;
-      this.telephoneu=this.policier.telephone;  
+      this.telephoneu=this.policier.telephone; 
+      this.profilu=this.policier.profile; 
       console.log("la nom est "+this.nomu)
       console.log("la prenom est "+this.prenomu)
       console.log("la domicile est "+this.domicileu)
     });
-
   }
+
 
 }

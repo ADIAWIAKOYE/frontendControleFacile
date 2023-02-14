@@ -22,6 +22,7 @@ export class InformationPage implements OnInit {
   telephoneu: any;
   iduser: any;
   profv: any;
+  profilu: any;
 
   constructor(private storageService: StorageService, private route: ActivatedRoute,  private informationservice: InformationService) { }
 
@@ -50,7 +51,8 @@ export class InformationPage implements OnInit {
       this.lieunaissanceu=this.utilisateur.lieunaissance;
       this.professionu=this.utilisateur.profession;
       this.communeu=this.utilisateur.commune;
-      this.telephoneu=this.utilisateur.telephone;  
+      this.telephoneu=this.utilisateur.telephone;
+      this.profilu=this.utilisateur.profile;  
       console.log("la nom est "+this.nomu)
       console.log("la prenom est "+this.prenomu)
       console.log("la domicile est "+this.domicileu)

@@ -12,11 +12,24 @@
     </div>
 
     <!-- <div class="icond col-md-3"> -->
-      <div class="cercler">
+      <!-- <div class="cercler">
         <div class="icon">
          <a [routerLink] = "['information', this.iduser]"> <ion-img class="imag" src="/assets/icon/OO.png" alt=""></ion-img></a>
         </div>
-      </div>
+      </div> -->
+       <div class="cloch">
+            <ion-buttons slot="" id="open-custom-dialog1" expand="block" style="margin-left: -2% !important; margin-top: 15px;">
+            <ion-icon style="width: 50px; height: 50px; color: #fff;" slot="icon-only" name="notifications-outline"></ion-icon>
+            <ion-badge color="danger"
+              style="--height: 20px !important; position: absolute; right: -2px; top: -8px;">{{infractionnbr}}</ion-badge></ion-buttons>
+          &nbsp;
+          &nbsp;
+          <ion-avatar [routerLink] = "['information', this.iduser]">
+            <img class="imag" src="{{profilu}}" alt=""/>
+          </ion-avatar>
+       </div>
+     
+
     </div>
 
     <div class="bien ">
@@ -39,7 +52,7 @@
               <div class="label">
                 <ion-label>infraction réglé = <span>{{infractions[3]}}</span></ion-label>
                 &nbsp;
-                <a routerLink = '/compts' class="hire">{{infractions[5]}}</a>
+                <a  class="hire">{{infractions[5]}}</a>
               </div>
           </div>
        </div>

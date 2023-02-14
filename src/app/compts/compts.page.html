@@ -11,11 +11,15 @@
     </div>
 
     <!-- <div class="icond col-md-3"> -->
-      <div class="cercler">
+      <!-- <div class="cercler">
         <div class="icon">
          <a [routerLink] = "['information', this.iduser]"> <ion-img class="imag" src="{{profv}}" alt=""></ion-img></a>
         </div>
-      </div>
+      </div> -->
+      <ion-avatar [routerLink] = "['information', this.iduser]">
+        <img class="imag" src="{{profilu}}" alt=""/>
+      </ion-avatar>
+
     </div>
 
      <div class="retu">
@@ -27,18 +31,39 @@
     </div>
     <div class="card">
  <div class="icond ">
-  <div class="cerclef">
+
+  <!-- <div class="cerclef">
     <div class="iconf">
      <a routerLink = '/information'> <ion-img class="imag" src="{{profilu}}" alt=""></ion-img></a>
     </div>
+  </div> -->
+
+
+  <div class="container user-avatar">
+    <label for="files" class="Fimg">
+    <div class="simg"> 
+      
+    <img class="avatar" src="{{profilu}}" alt="" >
+    </div> 
+    <div class="status-overlay "> 
+      
+    <ion-icon class="IONic" name="camera-outline">
+      <input id="files" (change)="fileChang($event)" style="visibility:hidden;" type="file">
+    </ion-icon></div>
+  
+  </label>
+  <input id="files" (change)="fileChang($event)" style="visibility:hidden;" type="file">
+    </div>
+
+
+</div>
+
+<!-- <form (ngSubmit)="updateimage()">
+  <div class="icons ">
+    <input  class="custom-file-input" (change)="fileChang($event)" type="file" >
+    <button type="submit" class="ire">Modifier</button>
   </div>
-</div>
-<form (ngSubmit)="updateimage()">
-<div class="icons ">
-  <input  class="custom-file-input" (change)="fileChang($event)" type="file" >
-  <button type="submit" class="ire">Modifier</button>
-</div>
-</form>
+</form> -->
 
       <div class="Rrow">
         <form (ngSubmit)="updateutilisateur()">

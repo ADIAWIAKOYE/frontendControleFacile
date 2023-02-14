@@ -30,6 +30,9 @@ export class ComptepolicierPage implements OnInit {
   adresse : string = '';
   telephone : string = '';
   grade : string = '';
+  profileu: any;
+  file: any;
+  img: any;
 
   constructor(private storageService: StorageService, private route: ActivatedRoute, private policierservice : InformationpolicierService,  private compteservice: CompteService) { }
 
@@ -58,7 +61,26 @@ export class ComptepolicierPage implements OnInit {
      console.log("l'ID est "+this.idappuser)
 
 
-     this.policierservice.getpoliciser(this.idappuser).subscribe(data=>{
+    this.afficherpolocier();
+
+
+
+  }
+
+  fileChang(event:any){
+    this.file=event.target["files"][0]
+    this.compteservice.modifierprofilepolicier(this.iduser, this.file).subscribe(data=>{
+      this.img=data;
+      this.afficherpolocier();
+    })
+    console.log("azertyusdfghjxcvbnfghj",this.file)
+
+ 
+  }
+
+
+  afficherpolocier(){
+    this.policierservice.getpoliciser(this.idappuser).subscribe(data=>{
       this.policier=data;
       this.nomu=this.policier.nom;
       this.prenomu=this.policier.prenom;
@@ -66,14 +88,12 @@ export class ComptepolicierPage implements OnInit {
       this.emailu=this.policier.email;
       this.gradeu=this.policier.grade;
       this.matriculeu=this.policier.matricule;
-      this.telephoneu=this.policier.telephone;  
+      this.telephoneu=this.policier.telephone; 
+      this.profileu = this.policier.profile;
       console.log("la nom est "+this.nomu)
       console.log("la prenom est "+this.prenomu)
       console.log("la domicile est "+this.domicileu)
     });
-
-
-
   }
 
   updatepolicier(){
@@ -83,10 +103,12 @@ export class ComptepolicierPage implements OnInit {
         this.message = data.message
         console.log("azertyusdfghjxcvbnfghj",this.message)
 
-        console.log("la grade est:------------------",this.grade);       
+        console.log("la grade est:------------------",this.grade);   
+         
+        this.afficherpolocier();    
     }) 
    
-     location.reload();  
+    
   }
 
   submit1() {
