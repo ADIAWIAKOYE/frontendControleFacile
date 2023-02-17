@@ -33,18 +33,21 @@ export class CompteService {
   }
 
 
-  modifierutilisateur(idvehicule: any, nom : string,  prenom : string,  domicile : string,  telephone : string,  profession : string, commune : string):Observable<any>
+  modifierutilisateur(idappuser: any, nom : string,  prenom : string,  domicile : string,  telephone : string,  profession : string, commune : string):Observable<any>
   {
-    let data = {
-      "nom":nom,
-      "prenom":prenom,
-      "domicile":domicile,
-      "telephone":telephone,
-      "profession":profession,
-      "commune":commune
-      }
-
-    return this.http.put<any>(  AUTH_API + `utilisateur/Update/${idvehicule}`, data)
+    let data =new FormData();
+    data.append("nom", nom);
+    data.append("prenom", prenom);
+    data.append("domicile", domicile);
+    data.append("telephone", telephone);
+    data.append("profession", profession);
+    data.append("commune", commune);
+    console.log("id dE l'utilisateur modifier  est "+idappuser)
+    console.log("le nom dE l'utilisateur modifier  est "+nom)
+    console.log("le prenom l'utilisateur modifier  est "+prenom)
+    console.log("le domicile l'utilisateur modifier  est "+domicile)
+    console.log("le telephone l'utilisateur modifier  est "+telephone)
+    return this.http.put<any>(  AUTH_API + `utilisateur/Updateutil/${idappuser}`, data)
   }
 
   ///////////////////////////////Comptpolicier///////////////////////////////////////////////

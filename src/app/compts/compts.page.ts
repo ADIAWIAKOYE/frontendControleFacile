@@ -103,6 +103,7 @@ afficherComptepolicier(){
 
         this.message = this.utilisamodifier.message
         console.log("azertyusdfghjxcvbnfghj",this.message)
+        this.afficherComptepolicier();
     }) 
     // location.reload();  
   }
