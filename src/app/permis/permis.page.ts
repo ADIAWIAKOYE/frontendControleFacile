@@ -81,6 +81,8 @@ export class PermisPage implements OnInit {
       this.permicategorie=this.perm.permis.categoriepermis
       console.log("permis est "+this.perm.permis.nom )
       console.log("permis est "+this.perm.permis.numpermis )
+
+      console.log("data est "+this.perm)
     });
   }
 

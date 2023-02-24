@@ -32,6 +32,7 @@
     "@ionic/angular": "^6.1.9",
     "bootstrap": "^5.3.0-alpha1",
     "ionicons": "^6.0.3",
+    "jsqr": "^1.4.0",
     "ng2-search-filter": "^0.5.1",
     "phonegap-plugin-barcodescanner": "^8.1.0",
     "rxjs": "^6.6.7",

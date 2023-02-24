@@ -82,22 +82,22 @@
 
 
 
-  <div class="item-padd" *ngFor="let vehicle of vehicule">
+  <div class="item-padd" *ngFor="let vehicle of vehicule2">
     <div class="vehic">
       <div class="inmage">
-           <ion-img class="image" src="{{vehicle.photovehicule}}" alt=""></ion-img>
+           <ion-img class="image" src="{{vehicle[2]}}" alt=""></ion-img>
       </div>
 
       <div class="info">
         <div class="inform">
-        <p><span>{{marq}} </span><span> {{genr}} </span> <span> {{typ}}</span></p>
-        <p>Couleur : <span>{{vehicle.couleur}}</span></p>
+          <p><span>{{vehicle[18]}} </span><span> {{vehicle[16]}} </span> <span> {{vehicle[30]}}</span></p>
+          <p>Couleur : <span>{{vehicle[1]}}</span></p>
       </div>
       <div class="buton">
-        <a  [routerLink] = "['detailvehicule', vehicle.idvehicule]" routerLinkActive="active" class="hire">{{vehicle.plaqueimatri}}</a>
+        <a  [routerLink] = "['detailvehicule', vehicle.idvehicule]" routerLinkActive="active" class="hire">{{vehicle[3]}}</a>
         &nbsp;
         <!-- &nbsp; -->
-        <a [routerLink] = "['/modifiervehicule', vehicle.idvehicule]" routerLinkActive="active" class="btn">Modifier</a>
+        <a [routerLink] = "['/modifiervehicule', vehicle[0]]" routerLinkActive="active" class="btn">Modifier</a>
           </div>
       </div>
     </div>

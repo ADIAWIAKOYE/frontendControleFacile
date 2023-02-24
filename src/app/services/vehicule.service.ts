@@ -18,10 +18,22 @@ export class VehiculeService {
   }
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+  getlistervehicule2():Observable<any>
+  {
+    return this.http.get<any>(  AUTH_API + `vehicule/findallVehicul`)
+  }
+
+
 
   getvehicule(iduser: any):Observable<any>
   {
     return this.http.get<any>(  AUTH_API + `vehicule/user/${iduser}`)
+  }
+////////////////////////////////////////////////////////////////////////////////////////
+  getvehiculeparuser2(iduser: any):Observable<any>
+  {
+    return this.http.get<any>(  AUTH_API + `utilisateur/vehiculeuserrr/${iduser}`)
   }
 
 

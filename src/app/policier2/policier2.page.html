@@ -29,10 +29,19 @@
     </div>
 
     <div class="inmage">
-      <ion-img class="image" src="/assets/icon/Frame.png" alt=""></ion-img>
+      <!-- <ion-img class="image" src="/assets/icon/Frame.png" alt=""></ion-img> -->
+      <video #video [hidden]="!scanActive" width="100%">
+        <canvas #canvas hidden></canvas>
+      </video>
     </div>
+   <div class="div" style="width: 100%; text-align: center;">
+        <ion-button  (click)="startScan()">Clickez ici</ion-button>
+   </div>
+     <div class="qrcode" style="width: 80%; margin-left: auto; margin-right: auto; text-align: center; margin-top: 5%;">
 
-    <ion-button id="open-modal" expand="block">Scanner le QR Code</ion-button>
+      {{qr}}
+
+     </div>
 
 
     <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">

@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonModal } from '@ionic/angular';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { IonModal, LoadingController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { StorageService } from '../services/stockage.service';
 import { InformationpolicierService } from '../services/informationpolicier.service';
+import jsQR from "jsqr";
 // import { BarcodeScannerr } from '@capacitor-community/barcode-scanner';
 // import { Component } from '@angular/core';
 // import { Camera } from '@capacitor/camera';
@@ -18,6 +19,21 @@ import { InformationpolicierService } from '../services/informationpolicier.serv
 export class Policier2Page implements OnInit {
   
   @ViewChild(IonModal) modal!: IonModal;
+
+
+
+  scanActive = false;
+  scanResult = null;
+
+ 
+  @ViewChild('video',{static:false}) video!: ElementRef;
+  @ViewChild('canvas',{static:false}) canvas!: ElementRef;
+
+  videoElement: any;
+  canvasElement: any;
+  canvasContext: any;
+
+  loading!: HTMLIonLoadingElement ;
 
   message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
   name!: string;
@@ -33,6 +49,7 @@ export class Policier2Page implements OnInit {
   matriculeu: any;
   telephoneu: any;
   profilu: any;
+  qr!: string;
 
   cancel() {
     this.modal.dismiss(null, 'cancel');
@@ -48,7 +65,7 @@ export class Policier2Page implements OnInit {
       this.message = `Hello, ${ev.detail.data}!`;
     }
   }
-  constructor(private storageService: StorageService, private qrScanner: QRScanner, private barcodeScanner: BarcodeScanner, private policierservice : InformationpolicierService) {
+  constructor(private storageService: StorageService, private qrScanner: QRScanner, private barcodeScanner: BarcodeScanner, private policierservice : InformationpolicierService, private loadingCtrl: LoadingController,) {
     // this.scancode();
    }
 
@@ -130,5 +147,81 @@ scan(){
       console.log("la domicile est "+this.domicileu)
     });
   }
+
+
+
+
+  ngAfterViewInit() {
+    this.videoElement = this.video.nativeElement;
+    this.canvasElement = this.canvas.nativeElement;
+    this.canvasContext = this.canvasElement.getContext('2d');
+  }
+
+  
+  
+    async startScan(){
+      const permission =true;
+      if(permission){
+        this.scanResult = null;
+        const  stream = await navigator.mediaDevices.getUserMedia({
+          video:{facingMode: 'environment'}
+        });
+        this.videoElement.srcObject = stream
+        this.videoElement.setAttribute('playinline', true);
+        this.videoElement.play();
+  
+        this.loading = await this.loadingCtrl.create({});
+        await this.loading.present();
+        requestAnimationFrame(this.scann.bind(this));
+      }
+    }
+  
+   
+    async scann(){
+          if(this.videoElement.readyState === this.videoElement.HAVE_ENOUGH_DATA){
+            if(this.loading){
+              await this.loading.dismiss();
+              this.scanActive =true;
+            }
+  
+            this.canvasElement.height = this.videoElement.videoHeight;
+            this.canvasElement.width = this.videoElement.videoWidth;
+
+            this.canvasContext.drawImage(
+              this.videoElement,
+              0,
+              0,
+              this.canvasElement.width,
+              this.canvasElement.height
+            );
+            
+            const imageData = this.canvasContext.getImageData(
+              0,
+              0,
+              this.canvasElement.width,
+              this.canvasElement.height
+            );
+            const code = jsQR(imageData.data, imageData.width, imageData.height,{
+              inversionAttempts:'dontInvert',
+            });
+  
+              if(code){
+                 this.qr = code.data;
+                console.log(code.data);
+                console.log("ok");
+  
+              }else{
+                if(this.scanActive){
+                  requestAnimationFrame(this.scann.bind(this));
+                }
+              }
+          }else{
+            requestAnimationFrame(this.scann.bind(this));
+          }
+    }
+  
+    stopScan(){
+      this.scanActive =false;
+    }
 
 }

@@ -28,6 +28,7 @@ export class VehiculePage implements OnInit {
   profv: any;
   user: any;
   profilu: any;
+  vehicule2: any;
 
   constructor( private vehiculeservice: VehiculeService, private storageService: StorageService, private informationservice : InformationService) { }
 
@@ -72,6 +73,16 @@ export class VehiculePage implements OnInit {
     this.AfficherVehicule();
 
     this.afficheruser();
+
+    this.AfficherVehicule2();
+  }
+
+
+  AfficherVehicule2(){
+    this.vehiculeservice.getvehiculeparuser2(this.iduser).subscribe(data=>{
+      this.vehicule2=data;
+      console.log("id vehicule est "+ data)
+    })
   }
 
 

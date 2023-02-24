@@ -30,6 +30,7 @@ export class Policier3Page implements OnInit {
   matriculeu: any;
   telephoneu: any;
   profilu: any;
+  vehicul2: any;
 
   constructor(private storageService: StorageService, private  vehiculeservice : VehiculeService, private policierservice : InformationpolicierService) { }
 
@@ -67,6 +68,14 @@ export class Policier3Page implements OnInit {
 
     });
     this.afficherpolicier();
+
+    this.listedesvehicule();
+  }
+
+  listedesvehicule(){
+    this.vehiculeservice.getlistervehicule2().subscribe(data=>{
+      this.vehicul2=data;
+    })
   }
 
   afficherpolicier(){

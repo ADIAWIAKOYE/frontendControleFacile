@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { InformationService } from '../services/information.service';
 import { ModifiervehiculeService } from '../services/modifiervehicule.service';
 import { StorageService } from '../services/stockage.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -73,7 +74,23 @@ updateEmployee() {
 
        console.log("la message  est "+this.Message)
        this.getvehicule();
+
+       setTimeout (()=>{
+
+          Swal.fire({
+
+              position: 'center',
+              icon: 'success',
+              heightAuto:false,
+              title: this.Message,
+              showConfirmButton: false,
+               timer: 3000.
+               
+            })
+
+      },10)
   });
+  
   // location.reload();
       }
 
